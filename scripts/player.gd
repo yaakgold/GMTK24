@@ -5,6 +5,8 @@ class_name Player
 @onready var proj_position_holder = $Proj_Position_Holder
 @onready var health: Health = $health
 @onready var dash_timer = $Dash_Timer
+@onready var collider = $CollisionPolygon2D
+@onready var hurtbox_collider = $Hurtbox/CollisionShape2D
 
 @export var dash_time = .15
 
@@ -29,24 +31,23 @@ func _physics_process(delta):
 func update_movement(delta):
 	if(!is_dashing && Input.is_action_just_pressed("dash")):
 		is_dashing = true
+		collider.disabled = true
+		hurtbox_collider.disabled = true
 		dash_timer.start(dash_time)
 	
 	# Get the input direction and handle the movement/deceleration.
 	var directionx = Input.get_axis("left", "right")
 	if directionx:
-		velocity.x = directionx * SPEED
+		velocity.x = directionx * SPEED * (DASH_SPEED_MULT if is_dashing else 1)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * SLOW_DOWN_SPEED * delta)
 		
 	var directiony = Input.get_axis("up", "down")
 	if directiony:
-		velocity.y = directiony * SPEED
+		velocity.y = directiony * SPEED * (DASH_SPEED_MULT if is_dashing else 1)
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED * SLOW_DOWN_SPEED  * delta)
-		
-	if(is_dashing and (directionx or directiony)):
-		velocity *= DASH_SPEED_MULT
-		
+	
 	move_and_slide()
 	
 func aim_and_fire():
@@ -73,3 +74,8 @@ func _on_health_killed():
 
 func _on_dash_timer_timeout():
 	is_dashing = false
+	collider.disabled = false
+	hurtbox_collider.disabled = false
+
+func _on_hurtbox_area_entered(hitbox):
+	health.take_damage(hitbox.damage)

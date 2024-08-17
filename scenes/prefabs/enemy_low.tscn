@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgg7b3c5oc6xi"]
+
+[ext_resource type="Script" path="res://scripts/lower_enemy.gd" id="1_6owu3"]
+[ext_resource type="Texture2D" uid="uid://d25avd7q40ne0" path="res://images/Letter_a_low.png" id="2_ttudq"]
+[ext_resource type="PackedScene" uid="uid://c2adget47swu4" path="res://scenes/prefabs/health.tscn" id="3_cxrgv"]
+[ext_resource type="PackedScene" uid="uid://b5tpdgc5545oh" path="res://scenes/prefabs/overlap/hurtbox.tscn" id="4_5ogat"]
+[ext_resource type="PackedScene" uid="uid://c4fpixmoilald" path="res://scenes/prefabs/overlap/hitbox.tscn" id="5_5l256"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43ct0"]
+size = Vector2(30, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gond2"]
+size = Vector2(30, 31)
+
+[node name="Enemy_low" type="CharacterBody2D"]
+collision_layer = 5
+motion_mode = 1
+script = ExtResource("1_6owu3")
+attack_range = 100.0
+time_to_attack = 3.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-15, -16, 16, -16, 17, 17, -17, 17)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
+texture = ExtResource("2_ttudq")
+
+[node name="Proj_Position_Holder" type="Node2D" parent="."]
+
+[node name="Proj_Position" type="Node2D" parent="Proj_Position_Holder"]
+position = Vector2(0, -42)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="health" parent="." instance=ExtResource("3_cxrgv")]
+max_health = 30
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_5ogat")]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_43ct0")
+
+[node name="Hitbox" parent="." instance=ExtResource("5_5l256")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gond2")
+
+[node name="Dash_Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="health_changed" from="health" to="." method="_on_health_health_changed"]
+[connection signal="killed" from="health" to="." method="_on_health_killed"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

@@ -1,4 +1,4 @@
-extends Area2D
+extends Hitbox
 class_name Projectile
 
 @onready var timer = $Timer
@@ -22,9 +22,5 @@ func fire(_speed, target_pos):
 func _on_timer_timeout():
 	queue_free()
 
-func _on_area_entered(area):
-	var parent = area.get_parent()
-	if(parent is Player or parent is CapEnemy or parent is LowEnemy):
-		parent.health.take_damage(10)
-		queue_free()
-		
+func _on_did_damage():
+	queue_free()

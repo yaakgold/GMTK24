@@ -1,17 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1ceq43rjlt76"]
+[gd_scene load_steps=14 format=3 uid="uid://d1ceq43rjlt76"]
 
 [ext_resource type="PackedScene" uid="uid://dysudfsa7cpo" path="res://scenes/prefabs/player.tscn" id="1_4n2m1"]
-[ext_resource type="PackedScene" uid="uid://bgg7b3c5oc6xi" path="res://scenes/prefabs/enemy_low_a.tscn" id="3_37elc"]
+[ext_resource type="Texture2D" uid="uid://d2q78w6ig7rsx" path="res://images/gmtk-2022b.png" id="3_bhv5c"]
 [ext_resource type="PackedScene" uid="uid://1kcu83c856u" path="res://scenes/prefabs/boundry.tscn" id="3_comlm"]
+[ext_resource type="Script" path="res://scripts/wave_controller.gd" id="4_2ixq7"]
+[ext_resource type="Texture2D" uid="uid://casx4pbbm5xh3" path="res://images/BG.png" id="4_b6d3x"]
+[ext_resource type="Texture2D" uid="uid://dojmk7n60480l" path="res://images/gmtk-2022b_K.png" id="4_ur8bi"]
+[ext_resource type="Texture2D" uid="uid://baf3ecwma33wu" path="res://images/gmtk-2022b_T.png" id="5_vojhw"]
+[ext_resource type="PackedScene" uid="uid://bfm4sdaawsl1h" path="res://scenes/prefabs/enemy_cap.tscn" id="6_a6lok"]
+[ext_resource type="Texture2D" uid="uid://by2v02pwfqhwo" path="res://images/GMTK_G.png" id="7_ft41r"]
+[ext_resource type="Texture2D" uid="uid://ddqed4gw7ekys" path="res://images/GMTK_M.png" id="7_w6crb"]
+[ext_resource type="Texture2D" uid="uid://fr83n367tlxr" path="res://images/GMTK_T.png" id="8_pg3or"]
+[ext_resource type="Texture2D" uid="uid://cdgf6mj1mdbyu" path="res://images/GMTK_K.png" id="8_v31ip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt4dd"]
+size = Vector2(183.62, 186.011)
 
 [node name="game" type="Node2D"]
-
-[node name="player" parent="." instance=ExtResource("1_4n2m1")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Enemy_a" parent="." instance=ExtResource("3_37elc")]
-position = Vector2(369, -59)
 
 [node name="WORLD" type="Node" parent="."]
 
@@ -29,3 +34,176 @@ rotation = 1.5708
 [node name="Boundry_East" parent="WORLD" instance=ExtResource("3_comlm")]
 position = Vector2(572, 0)
 rotation = -1.5708
+
+[node name="BG" type="Sprite2D" parent="WORLD"]
+texture = ExtResource("4_b6d3x")
+
+[node name="BG2" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -1080)
+texture = ExtResource("4_b6d3x")
+
+[node name="ColorRect" type="ColorRect" parent="WORLD/BG"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -824.0
+offset_top = -1525.0
+offset_right = -1110.0
+offset_bottom = -655.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Section 1" type="Node" parent="WORLD"]
+
+[node name="ColorRect" type="ColorRect" parent="WORLD/Section 1"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -791.0
+offset_top = -334.0
+offset_right = -791.0
+offset_bottom = -334.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.815543, 0.660541)
+color = Color(0, 0, 0, 1)
+
+[node name="Gmtk-2022b" type="Sprite2D" parent="WORLD/Section 1"]
+z_index = 1
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_bhv5c")
+
+[node name="Sprite2D" type="Sprite2D" parent="WORLD/Section 1/Gmtk-2022b"]
+position = Vector2(225, 216.667)
+texture = ExtResource("4_ur8bi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="WORLD/Section 1/Gmtk-2022b"]
+position = Vector2(-225, 216.667)
+texture = ExtResource("5_vojhw")
+
+[node name="Enemy2" parent="WORLD/Section 1" groups=["wave_0_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(27, -38)
+rotation = 1.5708
+scale = Vector2(0.12, 0.12)
+
+[node name="CollisionPolygon2D" parent="WORLD/Section 1/Enemy2" index="0"]
+polygon = PackedVector2Array(150, -158.333, 150, 175, -141.667, 166.667, -141.667, -150)
+
+[node name="Sprite2D" parent="WORLD/Section 1/Enemy2/CollisionPolygon2D" index="0"]
+rotation = -1.5708
+texture = ExtResource("7_w6crb")
+
+[node name="Proj_Position_Holder" parent="WORLD/Section 1/Enemy2" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/Section 1/Enemy2/Proj_Position_Holder" index="0"]
+position = Vector2(0, -190)
+
+[node name="Hurtbox" parent="WORLD/Section 1/Enemy2" index="4"]
+position = Vector2(8.33333, -8.33333)
+scale = Vector2(1.36151, 0.985604)
+
+[node name="CollisionShape2D" parent="WORLD/Section 1/Enemy2/Hurtbox" index="0"]
+position = Vector2(-4.16692, 16.6667)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wt4dd")
+
+[node name="Enemy4" parent="WORLD/Section 1" groups=["wave_0_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(28, 27)
+rotation = 1.5708
+scale = Vector2(0.12, 0.12)
+
+[node name="CollisionPolygon2D" parent="WORLD/Section 1/Enemy4" index="0"]
+polygon = PackedVector2Array(125, -100, 125, 91.6667, -125, 91.6667, -125, -100)
+
+[node name="Sprite2D" parent="WORLD/Section 1/Enemy4/CollisionPolygon2D" index="0"]
+rotation = -1.5708
+texture = ExtResource("8_v31ip")
+
+[node name="Proj_Position_Holder" parent="WORLD/Section 1/Enemy4" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/Section 1/Enemy4/Proj_Position_Holder" index="0"]
+position = Vector2(0, -190)
+
+[node name="Hurtbox" parent="WORLD/Section 1/Enemy4" index="4"]
+position = Vector2(8.33333, -8.33333)
+scale = Vector2(1.36151, 0.985604)
+
+[node name="CollisionShape2D" parent="WORLD/Section 1/Enemy4/Hurtbox" index="0"]
+position = Vector2(-6.12068, 8.45505)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wt4dd")
+
+[node name="Enemy3" parent="WORLD/Section 1" groups=["wave_0_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-27, 26)
+rotation = 1.5708
+scale = Vector2(0.12, 0.12)
+
+[node name="CollisionPolygon2D" parent="WORLD/Section 1/Enemy3" index="0"]
+polygon = PackedVector2Array(125, -50, 125, 41.6667, -125, 100, -125, -108.333)
+
+[node name="Sprite2D" parent="WORLD/Section 1/Enemy3/CollisionPolygon2D" index="0"]
+rotation = -1.5708
+texture = ExtResource("8_pg3or")
+
+[node name="Proj_Position_Holder" parent="WORLD/Section 1/Enemy3" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/Section 1/Enemy3/Proj_Position_Holder" index="0"]
+position = Vector2(0, -190)
+
+[node name="Hurtbox" parent="WORLD/Section 1/Enemy3" index="4"]
+position = Vector2(8.33333, -8.33333)
+scale = Vector2(1.36151, 0.985604)
+
+[node name="CollisionShape2D" parent="WORLD/Section 1/Enemy3/Hurtbox" index="0"]
+position = Vector2(-6.12068, 8.45505)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wt4dd")
+
+[node name="Enemy" parent="WORLD/Section 1" groups=["wave_0_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-27, -39)
+scale = Vector2(0.12, 0.12)
+
+[node name="CollisionPolygon2D" parent="WORLD/Section 1/Enemy" index="0"]
+polygon = PackedVector2Array(33.3331, -150, 108.333, -100, 116.666, 25, 99.9997, 150, -8.33359, 191.667, -108.334, 158.333, -125, 41.6667, -108.334, -116.667, -50.0003, -141.667)
+
+[node name="Sprite2D" parent="WORLD/Section 1/Enemy/CollisionPolygon2D" index="0"]
+texture = ExtResource("7_ft41r")
+
+[node name="Proj_Position_Holder" parent="WORLD/Section 1/Enemy" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/Section 1/Enemy/Proj_Position_Holder" index="0"]
+position = Vector2(0, -160)
+
+[node name="CollisionShape2D" parent="WORLD/Section 1/Enemy/Hurtbox" index="0"]
+position = Vector2(-4.16692, 16.6667)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wt4dd")
+
+[node name="player" parent="." instance=ExtResource("1_4n2m1")]
+unique_name_in_owner = true
+position = Vector2(0, 203)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.65, 1.65)
+
+[node name="WAVE_CONTROLLER" type="Node" parent="."]
+script = ExtResource("4_2ixq7")
+
+[editable path="WORLD/Section 1/Enemy2"]
+[editable path="WORLD/Section 1/Enemy2/Hurtbox"]
+[editable path="WORLD/Section 1/Enemy4"]
+[editable path="WORLD/Section 1/Enemy4/Hurtbox"]
+[editable path="WORLD/Section 1/Enemy3"]
+[editable path="WORLD/Section 1/Enemy3/Hurtbox"]
+[editable path="WORLD/Section 1/Enemy"]
+[editable path="WORLD/Section 1/Enemy/Hurtbox"]

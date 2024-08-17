@@ -13,31 +13,41 @@ var proj = preload("res://scenes/prefabs/projectile.tscn")
 
 const SPEED = 200.0
 const SLOW_DOWN_SPEED = 2.0
+const ROTATE_SPEED = 5.0
 
 var player: Player
 var can_fire = true
+var is_spawned = false
 
 func _ready():
-	player = get_node("../player")
+	player = get_tree().root.get_child(0).get_node("player")
 
 func _physics_process(delta):
-	if(!player):
+	if(!player or !is_spawned):
 		return
 	
-	proj_position_holder.look_at(player.position) #Need to add an extra 90 deg rotation
-	proj_position_holder.rotate(deg_to_rad(90))
+	#Look at player, smoothly
+	var v = player.global_position - global_position
+	var angle = v.angle()
+	var r = global_rotation
+	global_rotation = lerp(r, angle, delta * ROTATE_SPEED)
+	
+	#proj_position_holder.look_at(player.position) #Need to add an extra 90 deg rotation
+	#proj_position_holder.rotate(deg_to_rad(90))
 	
 	if(position.distance_to(player.position) > attack_range):
 		velocity = position.direction_to(player.position) * SPEED
-		pass
 	else:
 		#Fire at player
 		velocity.x = move_toward(velocity.x, 0, SPEED * SLOW_DOWN_SPEED * delta)
 		velocity.y = move_toward(velocity.y, 0, SPEED * SLOW_DOWN_SPEED * delta)
 		attempt_fire()
-		pass
 	
 	move_and_slide()
+
+func spawn_enemy():
+	#TODO: Set start animation
+	is_spawned = true
 
 func attempt_fire():
 	if(can_fire):
@@ -60,3 +70,8 @@ func _on_health_health_changed(amt):
 func _on_health_killed():
 	queue_free()
 	#TODO: Make death animation
+
+
+func _on_hurtbox_area_entered(hitbox):
+	health.take_damage(hitbox.damage)
+	hitbox.did_damage.emit()
