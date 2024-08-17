@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ceq43rjlt76"]
+
+[ext_resource type="PackedScene" uid="uid://dysudfsa7cpo" path="res://scenes/prefabs/player.tscn" id="1_4n2m1"]
+[ext_resource type="PackedScene" uid="uid://bgg7b3c5oc6xi" path="res://scenes/prefabs/enemy_low_a.tscn" id="3_37elc"]
+[ext_resource type="PackedScene" uid="uid://1kcu83c856u" path="res://scenes/prefabs/boundry.tscn" id="3_comlm"]
+
+[node name="game" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_4n2m1")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Enemy_a" parent="." instance=ExtResource("3_37elc")]
+position = Vector2(369, -59)
+
+[node name="WORLD" type="Node" parent="."]
+
+[node name="Boundry_North" parent="WORLD" instance=ExtResource("3_comlm")]
+position = Vector2(0, -320)
+rotation = 3.14159
+
+[node name="Boundry_South" parent="WORLD" instance=ExtResource("3_comlm")]
+position = Vector2(0, 320)
+
+[node name="Boundry_West" parent="WORLD" instance=ExtResource("3_comlm")]
+position = Vector2(-572, 0)
+rotation = 1.5708
+
+[node name="Boundry_East" parent="WORLD" instance=ExtResource("3_comlm")]
+position = Vector2(572, 0)
+rotation = -1.5708

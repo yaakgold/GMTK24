@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dysudfsa7cpo"]
+
+[ext_resource type="Texture2D" uid="uid://dbvaie34k3mn7" path="res://icon.svg" id="1_elom2"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_jyt4m"]
+[ext_resource type="PackedScene" uid="uid://c2adget47swu4" path="res://scenes/prefabs/health.tscn" id="3_udr7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scfof"]
+size = Vector2(34, 32)
+
+[node name="player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_jyt4m")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-18, -16, 17, -16, 16, 16, -16, 17)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
+scale = Vector2(0.265625, 0.265625)
+texture = ExtResource("1_elom2")
+
+[node name="Proj_Position_Holder" type="Node2D" parent="."]
+
+[node name="Proj_Position" type="Node2D" parent="Proj_Position_Holder"]
+position = Vector2(0, -42)
+
+[node name="health" parent="." instance=ExtResource("3_udr7f")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_scfof")
+
+[node name="Dash_Timer" type="Timer" parent="."]
+
+[connection signal="health_changed" from="health" to="." method="_on_health_health_changed"]
+[connection signal="killed" from="health" to="." method="_on_health_killed"]
+[connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
