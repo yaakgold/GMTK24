@@ -33,7 +33,7 @@ func _physics_process(delta):
 	
 	proj_position_holder.look_at(player.position) #Need to add an extra 90 deg rotation
 	proj_position_holder.rotate(deg_to_rad(90))
-	#print(position.distance_to(player.position))
+
 	if(!is_dashing and position.distance_to(player.position) > attack_range):
 		velocity = position.direction_to(player.position) * SPEED
 	elif(is_dashing):
@@ -51,10 +51,11 @@ func spawn_enemy():
 func attempt_dash():
 	if(timer.time_left > 0):
 		return
-	print("Timer started")
 	timer.start(time_to_attack)
 
 func _on_timer_timeout():
+	if(!player):
+		return
 	is_dashing = true
 	dash_direction = position.direction_to(player.position)
 	collider.disabled = true
@@ -63,7 +64,7 @@ func _on_timer_timeout():
 
 
 func _on_health_health_changed(amt):
-	print(amt)
+	pass
 
 
 func _on_health_killed():

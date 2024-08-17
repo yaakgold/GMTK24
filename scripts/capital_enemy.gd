@@ -57,7 +57,7 @@ func attempt_fire():
 		var p: Projectile = proj.instantiate()
 		p.position = proj_position.global_position
 		get_tree().root.add_child(p)
-		p.fire(400, player.position)
+		p.fire(400, player.position, Color(1, 0, 0), false)
 
 func _on_timer_timeout():
 	can_fire = true

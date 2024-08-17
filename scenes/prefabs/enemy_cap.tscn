@@ -1,23 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://bfm4sdaawsl1h"]
 
 [ext_resource type="Script" path="res://scripts/capital_enemy.gd" id="1_6d1em"]
-[ext_resource type="Texture2D" uid="uid://dqdo4yms3ky50" path="res://images/Letter_A.png" id="2_3lt5d"]
 [ext_resource type="PackedScene" uid="uid://c2adget47swu4" path="res://scenes/prefabs/health.tscn" id="3_ujx2n"]
 [ext_resource type="PackedScene" uid="uid://b5tpdgc5545oh" path="res://scenes/prefabs/overlap/hurtbox.tscn" id="4_bl6vc"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2tgc"]
+size = Vector2(31.0381, 44)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qo1b"]
-radius = 14.0357
+radius = 18.0
 
 [node name="Enemy_cap" type="CharacterBody2D"]
 collision_layer = 5
 motion_mode = 1
 script = ExtResource("1_6d1em")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-2, -16, 2, -16, 17, 14, 17, 17, -17, 17, -17, 14)
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t2tgc")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
-texture = ExtResource("2_3lt5d")
 
 [node name="Proj_Position_Holder" type="Node2D" parent="."]
 

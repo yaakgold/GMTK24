@@ -60,7 +60,7 @@ func aim_and_fire():
 		var p: Projectile = proj.instantiate()
 		p.position = proj_position.global_position
 		get_tree().root.add_child(p)
-		p.fire(400, get_global_mouse_position())
+		p.fire(400, get_global_mouse_position(), Color(0, 1, 0), true)
 
 func _on_health_health_changed(amt):
 	if(amt > 0): #This mean damage was taken
@@ -69,8 +69,9 @@ func _on_health_health_changed(amt):
 		print("Yummy: " + str(amt))
 
 func _on_health_killed():
-	queue_free()
-	#TODO: Do something here on death
+	var game: GameController = get_tree().root.get_child(0)
+	game.player_death.emit(self)
+	#TODO: Add a death animation
 
 func _on_dash_timer_timeout():
 	is_dashing = false

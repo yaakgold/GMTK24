@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://m2pd05c4xk2b"]
+
+[ext_resource type="LabelSettings" uid="uid://diqiypv4cmxkq" path="res://game_main.tres" id="1_6pc3r"]
+
+[node name="DeathScreen" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 843.5
+offset_top = 514.5
+offset_right = -843.5
+offset_bottom = -514.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ERROR: 400"
+label_settings = ExtResource("1_6pc3r")
+
+[node name="btn_Restart" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 878.0
+offset_top = 619.0
+offset_right = -869.0
+offset_bottom = -429.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+
+[node name="btn_Quit" type="Button" parent="."]
+offset_left = 897.0
+offset_top = 682.0
+offset_right = 1033.0
+offset_bottom = 713.0
+text = "Quit"

@@ -1,16 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgg7b3c5oc6xi"]
 
 [ext_resource type="Script" path="res://scripts/lower_enemy.gd" id="1_6owu3"]
-[ext_resource type="Texture2D" uid="uid://d25avd7q40ne0" path="res://images/Letter_a_low.png" id="2_ttudq"]
 [ext_resource type="PackedScene" uid="uid://c2adget47swu4" path="res://scenes/prefabs/health.tscn" id="3_cxrgv"]
 [ext_resource type="PackedScene" uid="uid://b5tpdgc5545oh" path="res://scenes/prefabs/overlap/hurtbox.tscn" id="4_5ogat"]
 [ext_resource type="PackedScene" uid="uid://c4fpixmoilald" path="res://scenes/prefabs/overlap/hitbox.tscn" id="5_5l256"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neyaa"]
+size = Vector2(28.979, 19.8298)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43ct0"]
-size = Vector2(30, 31)
+size = Vector2(28.7303, 20.7983)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gond2"]
-size = Vector2(30, 31)
+size = Vector2(28.7303, 20.7984)
 
 [node name="Enemy_low" type="CharacterBody2D"]
 collision_layer = 5
@@ -19,11 +21,10 @@ script = ExtResource("1_6owu3")
 attack_range = 100.0
 time_to_attack = 3.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-15, -16, 16, -16, 17, 17, -17, 17)
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_neyaa")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
-texture = ExtResource("2_ttudq")
 
 [node name="Proj_Position_Holder" type="Node2D" parent="."]
 

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://diqiypv4cmxkq"]
+
+[ext_resource type="FontFile" uid="uid://dctf0jxqnw51m" path="res://Lato-Black.ttf" id="1_5u5us"]
+
+[resource]
+font = ExtResource("1_5u5us")
+font_size = 42
