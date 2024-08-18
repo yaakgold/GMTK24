@@ -20,7 +20,13 @@ func fire(_speed, target_pos, color, is_player):
 	speed = _speed
 	direction = position.direction_to(target_pos)
 	gfx.modulate = color
-	damage = 10 if is_player else 1
+	
+	if(is_player):
+		var rng = RandomNumberGenerator.new()
+		damage = 10 + rng.randi_range(-4, 5)
+	else:
+		damage = 1
+	
 	set_collision_layer_value((2 if is_player else 3), true)
 	set_collision_mask_value((2 if is_player else 3), true)
 

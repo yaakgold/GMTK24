@@ -5,38 +5,41 @@ class_name Player
 @onready var proj_position_holder = $Proj_Position_Holder
 @onready var health: Health = $health
 @onready var dash_timer = $Dash_Timer
+@onready var fire_timer = $Fire_Timer
 @onready var collider = $CollisionPolygon2D
 @onready var hurtbox_collider = $Hurtbox/CollisionShape2D
 @onready var bomb_timer = $Bomb_Timer
+@onready var sprite = $CollisionPolygon2D/Sprite2D
 
 @export var dash_time = .15
+@export var game: GameController
 
 const SPEED = 300.0
 const SLOW_DOWN_SPEED = 2.0
 const DASH_SPEED_MULT = 3
+
+const MAIN_ICON = preload("res://images/main_icon.png")
+const DASH_ICON = preload("res://images/dash_icon.png")
 
 var proj = preload("res://scenes/prefabs/projectile.tscn")
 var bomb = preload("res://scenes/prefabs/bomb.tscn")
 
 var is_dashing = false
 var can_place_bomb = true
+var can_fire = true
 
 func _physics_process(delta):
-	#TODO: Move this somewhere that makes more sense
-	if(Input.is_action_pressed("exit")):
-		get_tree().quit()
-	
-	
 	update_movement(delta)
 	aim_and_fire()
 	
 
 func update_movement(delta):
 	if(!is_dashing && Input.is_action_just_pressed("dash")):
+		sprite.texture = DASH_ICON
 		is_dashing = true
 		collider.disabled = true
 		hurtbox_collider.disabled = true
-		dash_timer.start(dash_time)
+		dash_timer.start()
 	
 	# Get the input direction and handle the movement/deceleration.
 	var directionx = Input.get_axis("left", "right")
@@ -55,11 +58,15 @@ func update_movement(delta):
 	
 func aim_and_fire():
 	#Aim
-	proj_position_holder.look_at(get_global_mouse_position()) #Need to add an extra 90 deg rotation
-	proj_position_holder.rotate(deg_to_rad(90))
+	look_at(get_global_mouse_position())
+	rotate(deg_to_rad(90))
+	#proj_position_holder.look_at(get_global_mouse_position()) #Need to add an extra 90 deg rotation
+	#proj_position_holder.rotate(deg_to_rad(90))
 	
 	#Fire
-	if(Input.is_action_just_pressed("fire")):
+	if(Input.is_action_pressed("fire") and can_fire):
+		can_fire = false
+		fire_timer.start()
 		var p: Projectile = proj.instantiate()
 		p.position = proj_position.global_position
 		get_tree().root.add_child(p)
@@ -83,13 +90,17 @@ func _on_health_killed():
 	game.player_death.emit(self)
 
 func _on_dash_timer_timeout():
+	sprite.texture = MAIN_ICON
 	is_dashing = false
 	collider.disabled = false
 	hurtbox_collider.disabled = false
 
 func _on_hurtbox_area_entered(hitbox):
-	if(hitbox is Projectile or (hitbox is LowEnemy and hitbox.is_dashing)):
+	if(hitbox is Projectile or (hitbox.get_parent() is LowEnemy and hitbox.get_parent().is_dashing)):
 		health.take_damage(hitbox.damage)
 
 func _on_bomb_timer_timeout():
 	can_place_bomb = true
+
+func _on_fire_timer_timeout():
+	can_fire = true

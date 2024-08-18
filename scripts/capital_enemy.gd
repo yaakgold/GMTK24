@@ -12,6 +12,7 @@ class_name CapEnemy
 @export var time_between_shots = 1.0
 
 var proj = preload("res://scenes/prefabs/projectile.tscn")
+var part = preload("res://scenes/prefabs/particles.tscn")
 
 const SPEED = 200.0
 const SLOW_DOWN_SPEED = 2.0
@@ -24,7 +25,7 @@ var is_spawned = false
 func _physics_process(delta):
 	if(!player or !is_spawned):
 		return
-	
+		
 	#Look at player, smoothly
 	var v = player.global_position - global_position
 	var angle = v.angle()
@@ -54,7 +55,7 @@ func attempt_fire():
 		
 		var p: Projectile = proj.instantiate()
 		p.position = proj_position.global_position
-		get_tree().root.add_child(p)
+		get_tree().root.get_child(0).add_child(p)
 		p.fire(400, player.position, Color(1, 0, 0), false)
 
 func _on_timer_timeout():
@@ -66,9 +67,10 @@ func _on_health_health_changed(amt):
 
 
 func _on_health_killed():
+	var p = part.instantiate()
+	p.global_position = global_position
+	get_tree().root.get_child(0).add_child(p)
 	queue_free()
-	#TODO: Make death animation
-
 
 func _on_hurtbox_area_entered(hitbox):
 	health.take_damage(hitbox.damage)

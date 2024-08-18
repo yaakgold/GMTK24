@@ -13,6 +13,8 @@ size = Vector2(483, 41)
 
 [node name="Boss" type="CharacterBody2D"]
 z_index = 4
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_xffcs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,10 +35,242 @@ label_settings = ExtResource("1_kk36g")
 max_health = 1000
 
 [node name="Hurtbox" parent="." instance=ExtResource("3_mn38x")]
+collision_layer = 15
+collision_mask = 15
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_hs51v")
 disabled = true
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SpawnPoints"]
+position = Vector2(0, 39)
+
+[node name="Node2D2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-86, 40)
+
+[node name="Node2D3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-183, 37)
+
+[node name="Node2D4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-240, 31)
+
+[node name="Node2D5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-269, 4)
+
+[node name="Node2D6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-268, -21)
+
+[node name="Node2D7" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(-245, -39)
+
+[node name="Node2D8" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-213, -42)
+
+[node name="Node2D9" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-171, -46)
+
+[node name="Node2D10" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(-116, -47)
+
+[node name="Node2D11" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(-43, -45)
+
+[node name="Node2D12" type="Node2D" parent="SpawnPoints"]
+position = Vector2(49, -42)
+
+[node name="Node2D13" type="Node2D" parent="SpawnPoints"]
+position = Vector2(93, -45)
+
+[node name="Node2D14" type="Node2D" parent="SpawnPoints"]
+position = Vector2(169, -42)
+
+[node name="Node2D15" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(227, -41)
+
+[node name="Node2D16" type="Node2D" parent="SpawnPoints"]
+position = Vector2(275, -25)
+
+[node name="Node2D17" type="Node2D" parent="SpawnPoints"]
+position = Vector2(272, 12)
+
+[node name="Node2D18" type="Node2D" parent="SpawnPoints"]
+position = Vector2(241, 40)
+
+[node name="Node2D19" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(154, 50)
+
+[node name="Node2D29" type="Node2D" parent="SpawnPoints"]
+position = Vector2(123, 37)
+
+[node name="Node2D30" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(62, 39)
+
+[node name="Node2D31" type="Node2D" parent="SpawnPoints"]
+position = Vector2(18, 38)
+
+[node name="Node2D32" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-21, 39)
+
+[node name="Node2D33" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-62, 40)
+
+[node name="Node2D34" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-108, 39)
+
+[node name="Node2D35" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(-142, 38)
+
+[node name="Node2D36" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-201, 35)
+
+[node name="Node2D37" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-216, 33)
+
+[node name="Node2D38" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(-228, 32)
+
+[node name="Node2D39" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(-195, -43)
+
+[node name="Node2D40" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-141, -47)
+
+[node name="Node2D41" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-150, -47)
+
+[node name="Node2D42" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-99, -45)
+
+[node name="Node2D43" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-62, -44)
+
+[node name="Node2D44" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-26, -45)
+
+[node name="Node2D45" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-12, -44)
+
+[node name="Node2D46" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1, -43)
+
+[node name="Node2D47" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(23, -44)
+
+[node name="Node2D48" type="Node2D" parent="SpawnPoints"]
+position = Vector2(36, -42)
+
+[node name="Node2D49" type="Node2D" parent="SpawnPoints"]
+position = Vector2(61, -45)
+
+[node name="Node2D50" type="Node2D" parent="SpawnPoints"]
+position = Vector2(78, -44)
+
+[node name="Node2D51" type="Node2D" parent="SpawnPoints"]
+position = Vector2(103, -44)
+
+[node name="Node2D52" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(118, -43)
+
+[node name="Node2D53" type="Node2D" parent="SpawnPoints"]
+position = Vector2(146, -41)
+
+[node name="Node2D54" type="Node2D" parent="SpawnPoints"]
+position = Vector2(156, -42)
+
+[node name="Node2D55" type="Node2D" parent="SpawnPoints"]
+position = Vector2(187, -41)
+
+[node name="Node2D56" type="Node2D" parent="SpawnPoints"]
+position = Vector2(198, -41)
+
+[node name="Node2D57" type="Node2D" parent="SpawnPoints"]
+position = Vector2(209, -40)
+
+[node name="Node2D58" type="Node2D" parent="SpawnPoints"]
+position = Vector2(216, -41)
+
+[node name="Node2D59" type="Node2D" parent="SpawnPoints"]
+position = Vector2(242, -38)
+
+[node name="Node2D60" type="Node2D" parent="SpawnPoints"]
+position = Vector2(251, -34)
+
+[node name="Node2D61" type="Node2D" parent="SpawnPoints"]
+position = Vector2(259, -29)
+
+[node name="Node2D62" type="Node2D" parent="SpawnPoints"]
+position = Vector2(271, -17)
+
+[node name="Node2D63" type="Node2D" parent="SpawnPoints"]
+position = Vector2(271, -7)
+
+[node name="Node2D64" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(267, 22)
+
+[node name="Node2D65" type="Node2D" parent="SpawnPoints"]
+position = Vector2(261, 28)
+
+[node name="Node2D66" type="Node2D" parent="SpawnPoints"]
+position = Vector2(251, 36)
+
+[node name="Node2D67" type="Node2D" parent="SpawnPoints"]
+position = Vector2(228, 40)
+
+[node name="Node2D68" type="Node2D" parent="SpawnPoints"]
+position = Vector2(215, 40)
+
+[node name="Node2D69" type="Node2D" parent="SpawnPoints"]
+position = Vector2(204, 40)
+
+[node name="Node2D70" type="Node2D" parent="SpawnPoints"]
+position = Vector2(179, 41)
+
+[node name="Node2D71" type="Node2D" parent="SpawnPoints"]
+position = Vector2(170, 45)
+
+[node name="Node2D72" type="Node2D" parent="SpawnPoints"]
+position = Vector2(140, 42)
+
+[node name="Node2D73" type="Node2D" parent="SpawnPoints"]
+position = Vector2(113, 38)
+
+[node name="Node2D74" type="Node2D" parent="SpawnPoints"]
+position = Vector2(97, 38)
+
+[node name="Node2D75" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(-50, 40)
+
+[node name="Node2D20" type="Node2D" parent="SpawnPoints"]
+position = Vector2(83, 40)
+
+[node name="Node2D21" type="Node2D" parent="SpawnPoints"]
+position = Vector2(38, 40)
+
+[node name="Node2D22" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(-39, 39)
+
+[node name="Node2D23" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-157, 38)
+
+[node name="Node2D24" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(-126, 39)
+
+[node name="Node2D25" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-78, -43)
+
+[node name="Node2D26" type="Node2D" parent="SpawnPoints"]
+position = Vector2(12, -43)
+
+[node name="Node2D27" type="Node2D" parent="SpawnPoints" groups=["bombs"]]
+position = Vector2(131, -41)
+
+[node name="Node2D28" type="Node2D" parent="SpawnPoints"]
+position = Vector2(191, 37)
+
+[connection signal="killed" from="health" to="." method="_on_health_killed"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Hurtbox"]

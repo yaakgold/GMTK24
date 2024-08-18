@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d1ceq43rjlt76"]
+[gd_scene load_steps=36 format=3 uid="uid://d1ceq43rjlt76"]
 
 [ext_resource type="PackedScene" uid="uid://dysudfsa7cpo" path="res://scenes/prefabs/player.tscn" id="1_4n2m1"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_o0jjk"]
@@ -18,25 +18,97 @@
 [ext_resource type="PackedScene" uid="uid://bgg7b3c5oc6xi" path="res://scenes/prefabs/enemy_low.tscn" id="13_2uxav"]
 [ext_resource type="LabelSettings" uid="uid://cdskl5boa0ro7" path="res://game_red.tres" id="15_2l23v"]
 [ext_resource type="LabelSettings" uid="uid://my0nq4ivjkr4" path="res://game_main_black.tres" id="15_jn68l"]
+[ext_resource type="Texture2D" uid="uid://dphhjhemx3kcv" path="res://images/Boss_HealthBar_BG.png" id="16_7btwn"]
 [ext_resource type="PackedScene" uid="uid://cufy6s7xe65yp" path="res://scenes/prefabs/boss.tscn" id="16_22ahe"]
+[ext_resource type="Texture2D" uid="uid://bqognotxha3t" path="res://images/Boss_HealthBar_Value.png" id="17_bg0gr"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="20_gjjgj"]
+[ext_resource type="Texture2D" uid="uid://rsgkx3ihsdu0" path="res://images/HealthBar_BG.png" id="20_huifp"]
+[ext_resource type="Script" path="res://scripts/pasue_node.gd" id="20_i8acd"]
+[ext_resource type="VideoStream" uid="uid://7pwrer0rp431" path="res://videos/SubmitGame.ogv" id="21_75wyv"]
+[ext_resource type="Texture2D" uid="uid://c1mu1yqpm2lm4" path="res://images/HealthBar_FG.png" id="21_lj1it"]
+[ext_resource type="Texture2D" uid="uid://byytbwewgoest" path="res://images/FirstFrame.png" id="22_3c3tr"]
+[ext_resource type="AudioStream" uid="uid://diffx6c7brjm1" path="res://audio/MouseClick.mp3" id="23_qp735"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt4dd"]
 size = Vector2(183.62, 186.011)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oioir"]
-bg_color = Color(1, 0.960784, 0.964706, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.858824, 0.0392157, 0.0823529, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="Animation" id="Animation_vv6rj"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1000.0]
+}
 
-[node name="game" type="Node2D"]
+[sub_resource type="Animation" id="Animation_sctkg"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1000.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oi7il"]
+_data = {
+"RESET": SubResource("Animation_vv6rj"),
+"start": SubResource("Animation_sctkg")
+}
+
+[sub_resource type="Animation" id="Animation_l7xrs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1vqa4"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wcwnb"]
+_data = {
+"RESET": SubResource("Animation_l7xrs"),
+"start": SubResource("Animation_1vqa4")
+}
+
+[node name="game" type="Node2D" node_paths=PackedStringArray("cam")]
 script = ExtResource("1_o0jjk")
+cam = NodePath("Camera2D")
 
 [node name="WORLD" type="Node" parent="."]
 
@@ -47,13 +119,109 @@ texture = ExtResource("4_b6d3x")
 position = Vector2(0, -1080)
 texture = ExtResource("4_b6d3x")
 
+[node name="BG3" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -2160)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG4" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -3240)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG5" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -4320)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG6" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -5400)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG7" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -6480)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG8" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -7560)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG9" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -8640)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG10" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -9720)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG11" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -10800)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG12" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -11880)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG13" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -12960)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG14" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -14040)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG15" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -15120)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG16" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -16200)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG17" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -17280)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG18" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -18360)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG19" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -19440)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG20" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -20520)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG21" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -21600)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG22" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -22680)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG23" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -23760)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG24" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -24840)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG25" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -25920)
+texture = ExtResource("4_b6d3x")
+
+[node name="BG26" type="Sprite2D" parent="WORLD/BG"]
+position = Vector2(0, -27000)
+texture = ExtResource("4_b6d3x")
+
 [node name="ColorRect" type="ColorRect" parent="WORLD/BG"]
 z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -824.0
-offset_top = -1525.0
+offset_top = -2132.0
 offset_right = -1110.0
 offset_bottom = -655.0
 grow_horizontal = 2
@@ -826,6 +994,15 @@ z_index = 3
 position = Vector2(140, -170)
 rotation = -1.31932
 
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19"]
 texture_filter = 1
 anchors_preset = 8
@@ -846,19 +1023,19 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_cap20" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
 z_index = 3
 position = Vector2(160, -165)
 rotation = -1.31932
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
 
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20"]
 texture_filter = 1
@@ -880,19 +1057,19 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_cap21" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
 z_index = 3
 position = Vector2(182, -159)
 rotation = -1.31932
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
 
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21"]
 texture_filter = 1
@@ -914,19 +1091,19 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_cap22" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
 z_index = 3
 position = Vector2(212, -152)
 rotation = -1.31932
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
 
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22"]
 texture_filter = 1
@@ -948,19 +1125,19 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_cap23" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
 z_index = 3
 position = Vector2(238, -145)
 rotation = -1.31932
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
 
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23"]
 texture_filter = 1
@@ -982,19 +1159,19 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_cap24" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
 z_index = 3
 position = Vector2(273, -136)
 rotation = -1.31932
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
 
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24"]
 texture_filter = 1
@@ -1016,19 +1193,19 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_cap25" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
 z_index = 3
 position = Vector2(297, -130)
 rotation = -1.31932
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
 
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25"]
 texture_filter = 1
@@ -1050,19 +1227,19 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_cap26" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
 z_index = 3
 position = Vector2(313, -126)
 rotation = -1.31932
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
 
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26"]
 texture_filter = 1
@@ -1084,19 +1261,19 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_cap27" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
 z_index = 3
 position = Vector2(333, -121)
 rotation = -1.31932
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
 
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27"]
 texture_filter = 1
@@ -1118,19 +1295,19 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_cap28" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
 z_index = 3
 position = Vector2(361, -114)
 rotation = -1.31932
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28" index="0"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
 
 [node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28"]
 texture_filter = 1
@@ -1152,15 +1329,6 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28" index="1"]
-position = Vector2(-2.20096, 0.00012207)
-
-[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28" index="2"]
-rotation = 1.5708
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28/Proj_Position_Holder" index="0"]
-position = Vector2(0, -30.37)
-
 [node name="Enemy_low" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
 z_index = 3
 position = Vector2(372, -166)
@@ -1178,7 +1346,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1215,7 +1383,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low2/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low2"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low2"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1252,7 +1420,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low3/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low3"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low3"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1289,7 +1457,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low4/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low4"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low4"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1326,7 +1494,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low5/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low5"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low5"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1363,7 +1531,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low6/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low6"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low6"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1400,7 +1568,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low7/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low7"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low7"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1437,7 +1605,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low8/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low8"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low8"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1474,7 +1642,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low9/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low9"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low9"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1511,7 +1679,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low10/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low10"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low10"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1548,7 +1716,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low11/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low11"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low11"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1585,7 +1753,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low12/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low12"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low12"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1622,7 +1790,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low13/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low13"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low13"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1659,7 +1827,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low14/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low14"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low14"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1696,7 +1864,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low15/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low15"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low15"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1733,7 +1901,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low16/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low16"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low16"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1770,7 +1938,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low17/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low17"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low17"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1807,7 +1975,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low18/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low18"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low18"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1844,7 +2012,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low19/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low19"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low19"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1869,7 +2037,19 @@ z_index = 3
 position = Vector2(390, -109)
 rotation = -1.31947
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20"]
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1889,24 +2069,24 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20" index="1"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
-
 [node name="Enemy_low21" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
 z_index = 3
 position = Vector2(409, -105)
 rotation = -1.31947
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21"]
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1926,24 +2106,24 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21" index="1"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
-
 [node name="Enemy_low22" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
 z_index = 3
 position = Vector2(440, -97)
 rotation = -1.31947
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22"]
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1963,24 +2143,24 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22" index="1"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
-
 [node name="Enemy_low23" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
 z_index = 3
 position = Vector2(464, -90)
 rotation = -1.31947
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23"]
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2000,24 +2180,24 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23" index="1"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
-
 [node name="Enemy_low24" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
 z_index = 3
 position = Vector2(489, -90)
 rotation = -1.31947
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24"]
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2037,24 +2217,24 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24" index="1"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
-
 [node name="Enemy_low25" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
 z_index = 3
 position = Vector2(523, -76)
 rotation = -1.31947
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25"]
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label3" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2073,18 +2253,6 @@ text = "b"
 label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25" index="1"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
 
 [node name="Section 1" type="Node2D" parent="WORLD/BG"]
 
@@ -2199,7 +2367,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2236,7 +2404,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low2/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low2"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low2"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2274,7 +2442,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low3/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low3"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low3"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2311,7 +2479,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low4/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low4"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low4"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2348,7 +2516,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low5/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low5"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low5"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2385,7 +2553,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low6/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low6"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low6"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2422,7 +2590,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low7/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low7"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low7"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2459,7 +2627,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low8/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low8"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low8"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2496,7 +2664,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low9/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low9"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low9"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2533,7 +2701,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low10/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low10"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low10"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2570,7 +2738,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low11/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low11"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low11"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2607,7 +2775,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low12/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low12"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low12"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2644,7 +2812,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low13/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low13"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low13"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2681,7 +2849,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low14/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low14"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low14"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2718,7 +2886,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low15/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low15"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low15"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2755,7 +2923,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low16/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low16"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low16"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2792,7 +2960,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low17/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low17"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low17"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2829,7 +2997,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low18/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low18"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low18"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2866,7 +3034,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low19/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low19"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low19"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2903,7 +3071,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low20/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low20"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low20"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2940,7 +3108,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low21/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low21"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low21"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2977,7 +3145,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low22/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low22"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low22"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3014,7 +3182,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low23/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low23"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low23"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3051,7 +3219,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low24/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low24"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low24"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3088,7 +3256,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low25/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low25"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low25"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3125,7 +3293,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low26/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low26"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low26"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3162,7 +3330,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low27/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low27"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low27"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3199,7 +3367,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low28/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low28"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low28"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3236,7 +3404,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low29/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low29"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low29"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3273,7 +3441,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low30/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low30"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low30"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3310,7 +3478,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low31/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low31"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low31"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3347,7 +3515,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low32/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low32"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low32"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3384,7 +3552,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low33/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low33"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low33"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3421,7 +3589,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low34/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low34"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low34"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3458,7 +3626,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low35/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low35"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low35"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3495,7 +3663,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low36/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low36"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low36"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3532,7 +3700,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low37/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low37"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low37"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3569,7 +3737,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low38/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low38"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low38"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3606,7 +3774,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low39/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low39"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low39"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3643,7 +3811,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low40/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low40"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low40"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3680,7 +3848,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low41/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low41"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low41"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3717,7 +3885,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low42/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low42"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low42"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3754,7 +3922,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low43/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low43"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low43"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3791,7 +3959,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low44/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low44"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low44"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3828,7 +3996,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low45/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low45"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low45"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3865,7 +4033,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low46/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low46"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low46"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3902,7 +4070,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low47/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low47"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low47"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3939,7 +4107,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low48/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low48"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low48"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3976,7 +4144,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low49/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low49"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low49"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4013,7 +4181,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low50/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low50"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low50"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4050,7 +4218,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low51/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low51"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low51"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4087,7 +4255,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low52/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low52"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low52"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4124,7 +4292,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low53/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low53"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low53"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4161,7 +4329,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low54/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low54"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low54"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4198,7 +4366,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low55/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low55"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low55"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4235,7 +4403,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low56/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low56"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low56"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4272,7 +4440,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low57/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low57"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low57"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4309,7 +4477,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low58/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low58"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low58"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4346,7 +4514,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low59/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low59"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low59"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4383,7 +4551,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low60/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low60"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low60"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4420,7 +4588,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low61/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low61"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low61"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4457,7 +4625,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low62/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low62"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low62"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4494,7 +4662,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low63/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low63"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low63"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4531,7 +4699,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low64/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low64"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low64"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4568,7 +4736,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low65/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low65"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low65"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4605,7 +4773,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low66/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low66"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low66"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4642,7 +4810,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low67/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low67"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low67"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4679,7 +4847,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low68/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low68"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low68"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4716,7 +4884,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low69/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low69"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low69"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4753,7 +4921,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low70/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low70"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low70"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4790,7 +4958,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low71/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low71"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low71"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4827,7 +4995,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low72/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low72"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low72"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4864,7 +5032,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low73/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low73"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low73"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4901,7 +5069,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low74/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low74"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low74"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4938,7 +5106,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low75/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low75"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low75"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4975,7 +5143,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low76/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low76"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low76"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5012,7 +5180,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low77/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low77"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low77"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5049,7 +5217,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low78/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low78"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low78"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5086,7 +5254,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low79/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low79"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low79"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5123,7 +5291,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low80/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low80"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low80"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5160,7 +5328,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low81/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low81"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low81"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5197,7 +5365,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low82/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low82"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low82"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5234,7 +5402,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low83/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low83"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low83"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5271,7 +5439,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low84/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low84"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low84"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5308,7 +5476,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low85/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low85"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low85"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5345,7 +5513,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low86/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low86"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low86"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5382,7 +5550,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low87/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low87"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low87"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5419,7 +5587,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low88/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low88"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low88"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5456,7 +5624,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low89/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low89"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low89"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5493,7 +5661,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low90/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low90"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low90"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5530,7 +5698,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low91/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low91"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low91"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5567,7 +5735,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low92/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low92"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low92"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5604,7 +5772,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low93/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low93"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low93"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5641,7 +5809,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low94/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low94"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low94"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5678,7 +5846,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low95/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low95"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low95"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5715,7 +5883,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low96/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low96"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low96"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5752,7 +5920,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low97/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low97"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low97"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5789,7 +5957,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low98/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low98"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low98"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5826,7 +5994,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low99/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low99"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low99"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5863,7 +6031,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low100/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low100"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low100"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5900,7 +6068,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low101/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low101"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low101"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5937,7 +6105,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low102/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low102"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low102"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5974,7 +6142,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low103/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low103"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low103"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6011,7 +6179,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low104/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low104"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low104"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6048,7 +6216,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low105/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low105"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low105"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6085,7 +6253,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low106/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low106"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low106"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6122,7 +6290,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low107/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low107"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low107"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6159,7 +6327,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low108/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low108"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low108"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6196,7 +6364,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low109/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low109"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low109"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6233,7 +6401,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low110/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low110"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low110"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6270,7 +6438,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low111/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low111"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low111"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6307,7 +6475,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low112/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low112"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low112"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6344,7 +6512,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low113/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low113"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low113"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6381,7 +6549,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low114/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low114"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low114"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6418,7 +6586,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low115/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low115"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low115"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6455,7 +6623,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low116/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low116"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low116"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6492,7 +6660,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low117/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low117"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low117"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6529,7 +6697,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low118/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low118"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low118"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6566,7 +6734,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low119/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low119"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low119"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6603,7 +6771,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low120/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low120"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low120"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6640,7 +6808,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low121/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low121"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low121"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6677,7 +6845,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low122/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low122"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low122"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6714,7 +6882,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low123/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low123"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low123"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6751,7 +6919,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low124/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low124"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low124"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6788,7 +6956,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low125/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low125"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low125"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6825,7 +6993,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low126/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low126"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low126"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6862,7 +7030,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low127/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low127"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low127"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6899,7 +7067,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low128/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low128"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low128"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6936,7 +7104,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low129/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low129"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low129"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6973,7 +7141,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low130/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low130"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low130"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7182,7 +7350,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7219,7 +7387,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low2/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low2"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low2"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7256,7 +7424,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low3/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low3"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low3"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7293,7 +7461,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low4/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low4"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low4"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7330,7 +7498,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low5/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low5"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low5"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7367,7 +7535,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low6/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low6"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low6"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7404,7 +7572,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low7/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low7"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low7"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7441,7 +7609,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low8/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low8"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low8"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7478,7 +7646,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low9/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low9"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low9"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7515,7 +7683,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low10/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low10"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low10"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7552,7 +7720,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low11/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low11"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low11"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7589,7 +7757,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low12/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low12"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low12"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7626,7 +7794,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low13/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low13"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low13"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7663,7 +7831,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low14/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low14"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low14"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7700,7 +7868,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low15/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low15"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low15"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7737,7 +7905,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low16/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low16"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low16"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7774,7 +7942,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low17/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low17"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low17"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7811,7 +7979,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low18/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low18"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low18"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7848,7 +8016,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low19/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low19"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low19"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7885,7 +8053,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low20/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low20"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low20"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7922,7 +8090,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low21/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low21"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low21"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7959,7 +8127,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low22/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low22"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low22"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -7996,7 +8164,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low23/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low23"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low23"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8033,7 +8201,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low24/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low24"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low24"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8070,7 +8238,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low25/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low25"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low25"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8107,7 +8275,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low26/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low26"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low26"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8144,7 +8312,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low27/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low27"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low27"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8181,7 +8349,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low28/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low28"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low28"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8218,7 +8386,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low29/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low29"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low29"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8255,7 +8423,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low30/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low30"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low30"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8292,7 +8460,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low31/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low31"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low31"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8329,7 +8497,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low32/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low32"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low32"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8366,7 +8534,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low33/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low33"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low33"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8403,7 +8571,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low34/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low34"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low34"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8440,7 +8608,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low35/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low35"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low35"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8477,7 +8645,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low36/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low36"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low36"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8514,7 +8682,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low37/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low37"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low37"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8551,7 +8719,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low38/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low38"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low38"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8588,7 +8756,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low39/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low39"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low39"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8625,7 +8793,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low40/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low40"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low40"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8662,7 +8830,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low41/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low41"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low41"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8699,7 +8867,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low42/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low42"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low42"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8736,7 +8904,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low43/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low43"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low43"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8773,7 +8941,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low44/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low44"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low44"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8810,7 +8978,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low45/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low45"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low45"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8847,7 +9015,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low46/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low46"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low46"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8884,7 +9052,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low47/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low47"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low47"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8921,7 +9089,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low48/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low48"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low48"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8958,7 +9126,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low49/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low49"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low49"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -8995,7 +9163,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low50/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low50"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low50"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9032,7 +9200,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low51/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low51"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low51"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9069,7 +9237,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low52/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low52"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low52"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9106,7 +9274,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low53/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low53"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low53"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9143,7 +9311,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low54/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low54"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low54"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9180,7 +9348,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low55/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low55"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low55"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9217,7 +9385,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low56/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low56"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low56"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9254,7 +9422,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low57/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low57"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low57"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9291,7 +9459,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low58/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low58"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low58"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9328,7 +9496,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low59/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low59"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low59"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9365,7 +9533,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low60/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low60"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low60"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9402,7 +9570,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low61/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low61"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low61"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9439,7 +9607,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low62/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low62"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low62"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9476,7 +9644,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low63/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low63"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low63"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9513,7 +9681,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low64/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low64"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low64"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9550,7 +9718,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low65/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low65"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low65"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9587,7 +9755,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low66/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low66"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low66"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9624,7 +9792,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low67/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low67"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low67"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9661,7 +9829,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low68/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low68"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low68"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9698,7 +9866,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low69/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low69"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low69"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9735,7 +9903,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low70/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low70"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low70"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9772,7 +9940,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low71/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low71"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low71"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9809,7 +9977,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low72/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low72"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low72"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9846,7 +10014,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low73/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low73"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low73"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9883,7 +10051,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low74/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low74"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low74"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9920,7 +10088,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low75/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low75"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low75"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9957,7 +10125,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low76/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low76"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low76"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -9994,7 +10162,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low77/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low77"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low77"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10031,7 +10199,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low78/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low78"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low78"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10068,7 +10236,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low79/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low79"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low79"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10105,7 +10273,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low80/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low80"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low80"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10142,7 +10310,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low81/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low81"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low81"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10179,7 +10347,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low82/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low82"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low82"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10216,7 +10384,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low83/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low83"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low83"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10253,7 +10421,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low84/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low84"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low84"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10290,7 +10458,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low85/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low85"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low85"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10327,7 +10495,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low86/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low86"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low86"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10364,7 +10532,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low87/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low87"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low87"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10401,7 +10569,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low88/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low88"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low88"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10438,7 +10606,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low89/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low89"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low89"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10475,7 +10643,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low90/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low90"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low90"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10512,7 +10680,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low91/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low91"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low91"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10549,7 +10717,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low92/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low92"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low92"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10586,7 +10754,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low93/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low93"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low93"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10623,7 +10791,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low94/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low94"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low94"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10660,7 +10828,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low95/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low95"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low95"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10697,7 +10865,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low96/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low96"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low96"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10734,7 +10902,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low97/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low97"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low97"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10771,7 +10939,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low98/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low98"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low98"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10808,7 +10976,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low99/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low99"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low99"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10845,7 +11013,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low100/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low100"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low100"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10882,7 +11050,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low101/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low101"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low101"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10919,7 +11087,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low102/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low102"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low102"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10956,7 +11124,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low103/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low103"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low103"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -10993,7 +11161,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low104/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low104"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low104"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11030,7 +11198,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low105/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low105"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low105"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11067,7 +11235,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low106/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low106"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low106"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11104,7 +11272,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low107/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low107"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low107"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11141,7 +11309,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low108/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low108"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low108"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11178,7 +11346,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low109/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low109"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low109"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11215,7 +11383,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low110/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low110"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low110"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11252,7 +11420,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low111/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low111"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low111"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11289,7 +11457,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low112/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low112"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low112"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11326,7 +11494,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low113/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low113"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low113"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11363,7 +11531,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low114/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low114"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low114"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11400,7 +11568,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low115/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low115"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low115"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11437,7 +11605,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low116/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low116"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low116"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11474,7 +11642,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low117/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low117"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low117"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11511,7 +11679,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low118/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low118"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low118"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11548,7 +11716,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low119/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low119"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low119"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11585,7 +11753,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low120/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low120"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low120"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11622,7 +11790,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low121/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low121"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low121"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11659,7 +11827,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low122/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low122"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low122"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11696,7 +11864,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low123/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low123"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low123"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11733,7 +11901,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low124/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low124"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low124"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11770,7 +11938,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low125/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low125"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low125"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11807,7 +11975,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low126/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low126"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low126"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11844,7 +12012,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low127/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low127"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low127"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11881,7 +12049,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low128/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low128"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low128"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11918,7 +12086,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low129/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low129"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low129"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11955,7 +12123,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low130/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low130"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low130"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -11992,7 +12160,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low131/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low131"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low131"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12029,7 +12197,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low132/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low132"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low132"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12066,7 +12234,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low133/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low133"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low133"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12103,7 +12271,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low134/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low134"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low134"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12140,7 +12308,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low135/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low135"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low135"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12177,7 +12345,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low136/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low136"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low136"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12214,7 +12382,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low137/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low137"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low137"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12251,7 +12419,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low138/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low138"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low138"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12288,7 +12456,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low139/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low139"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low139"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12325,7 +12493,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low140/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low140"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low140"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12362,7 +12530,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low141/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low141"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low141"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12399,7 +12567,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low142/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low142"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low142"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12436,7 +12604,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low143/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low143"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low143"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12473,7 +12641,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low144/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low144"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low144"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12510,7 +12678,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low145/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low145"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low145"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12547,7 +12715,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low146/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low146"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low146"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12584,7 +12752,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low147/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low147"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low147"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12621,7 +12789,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low148/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low148"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low148"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12658,7 +12826,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low149/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low149"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low149"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12695,7 +12863,7 @@ position = Vector2(-3.26576, 1.35468)
 [node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low150/Hitbox" index="0"]
 position = Vector2(-3.26572, 1.35471)
 
-[node name="Label" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low150"]
+[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 2/Enemy_low150"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -12717,20 +12885,78 @@ vertical_alignment = 1
 
 [node name="Boss" type="Node2D" parent="WORLD/BG/Section 1"]
 
-[node name="Panel" type="Panel" parent="WORLD/BG/Section 1/Boss"]
-z_index = 3
+[node name="pb_boss" type="TextureProgressBar" parent="WORLD/BG/Section 1/Boss" node_paths=PackedStringArray("health")]
+z_index = 4
 offset_left = -778.0
 offset_top = -931.0
 offset_right = 766.795
 offset_bottom = -851.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_oioir")
+max_value = 1000.0
+fill_mode = 6
+texture_under = ExtResource("16_7btwn")
+texture_progress = ExtResource("17_bg0gr")
+script = ExtResource("20_gjjgj")
+health = NodePath("../Boss/health")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WORLD/BG/Section 1/Boss/pb_boss"]
+libraries = {
+"": SubResource("AnimationLibrary_oi7il")
+}
 
 [node name="Boss" parent="WORLD/BG/Section 1/Boss" groups=["wave_1_3"] instance=ExtResource("16_22ahe")]
 position = Vector2(-14, -892)
 
-[node name="player" parent="." instance=ExtResource("1_4n2m1")]
+[node name="Wave 4" type="Node2D" parent="WORLD/BG/Section 1"]
+
+[node name="PasueNode" type="Node2D" parent="WORLD/BG/Section 1/Wave 4" node_paths=PackedStringArray("vsp") groups=["wave_2_1"]]
+script = ExtResource("20_i8acd")
+vsp = NodePath("../VideoStreamPlayer")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="WORLD/BG/Section 1/Wave 4"]
+z_index = 101
+offset_left = -948.0
+offset_top = -2076.0
+offset_right = 972.0
+offset_bottom = -988.0
+stream = ExtResource("21_75wyv")
+
+[node name="TextureRect" type="TextureRect" parent="WORLD/BG/Section 1/Wave 4/VideoStreamPlayer"]
+z_index = -5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -875.0
+offset_top = -503.0
+offset_right = 875.0
+offset_bottom = 503.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_3c3tr")
+
+[node name="ColorRect" type="ColorRect" parent="WORLD/BG/Section 1/Wave 4/VideoStreamPlayer"]
+z_index = -6
+layout_mode = 0
+offset_left = -178.0
+offset_top = 41.0
+offset_right = 2059.0
+offset_bottom = 1051.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="WORLD/BG/Section 1/Wave 4/VideoStreamPlayer"]
+stream = ExtResource("23_qp735")
+
+[node name="Section 2" type="Node2D" parent="WORLD/BG"]
+position = Vector2(0, -27000)
+
+[node name="Wave 1" type="Node2D" parent="WORLD/BG/Section 2"]
+
+[node name="player" parent="." node_paths=PackedStringArray("game") instance=ExtResource("1_4n2m1")]
 unique_name_in_owner = true
 position = Vector2(0, 203)
+game = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.63, 1.63)
@@ -12754,8 +12980,35 @@ position = Vector2(572, 0)
 rotation = -1.5708
 collision_layer = 7
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+
 [node name="WAVE_CONTROLLER" type="Node" parent="."]
 script = ExtResource("4_2ixq7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pg_player_health" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("health")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -80.0
+offset_right = 450.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+fill_mode = 6
+texture_under = ExtResource("20_huifp")
+texture_progress = ExtResource("21_lj1it")
+script = ExtResource("20_gjjgj")
+health = NodePath("../../player/health")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/pg_player_health"]
+libraries = {
+"": SubResource("AnimationLibrary_wcwnb")
+}
 
 [connection signal="player_death" from="." to="." method="_on_player_death"]
 
@@ -13752,3 +14005,8 @@ script = ExtResource("4_2ixq7")
 [editable path="WORLD/BG/Section 1/Wave 2/Enemy_low150"]
 [editable path="WORLD/BG/Section 1/Wave 2/Enemy_low150/Hurtbox"]
 [editable path="WORLD/BG/Section 1/Wave 2/Enemy_low150/Hitbox"]
+[editable path="WORLD/BG/Section 1/Boss/Boss"]
+[editable path="WORLD/BG/Section 1/Boss/Boss/Hurtbox"]
+[editable path="player"]
+[editable path="player/Hurtbox"]
+[editable path="player/Hitbox"]

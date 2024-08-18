@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8be4w7doft0w"]
+
+[ext_resource type="PackedScene" uid="uid://bfm4sdaawsl1h" path="res://scenes/prefabs/enemy_cap.tscn" id="1_qulnm"]
+[ext_resource type="LabelSettings" uid="uid://cdskl5boa0ro7" path="res://game_red.tres" id="2_io5e2"]
+
+[node name="Enemy_cap" instance=ExtResource("1_qulnm")]
+z_index = 50
+
+[node name="Label" type="Label" parent="." index="0"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("2_io5e2")
+
+[editable path="Hurtbox"]

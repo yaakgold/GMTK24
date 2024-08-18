@@ -10,7 +10,7 @@ radius = 32.0
 [node name="Bomb" type="Area2D"]
 z_index = 2
 scale = Vector2(0.5, 0.5)
-collision_layer = 5
+collision_layer = 4
 script = ExtResource("1_ho2ew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

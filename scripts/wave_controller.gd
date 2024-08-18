@@ -16,12 +16,17 @@ var move_bg = false
 
 const ZOOM_SPEED = 2
 const MOVE_SPEED = 2
-const WAVE_COUNTS = [2, 3]
-const SECTION_CAM_Y_POS = [0.0, -480.0]
+const WAVE_COUNTS = [2, 3, 1, 1]
+const SECTION_CAM_Y_POS = [0.0, -480.0, -1532.0, -27000.0]
 
 func _ready():
-	await get_tree().create_timer(1.5).timeout
-	start_next_wave()
+	#await get_tree().create_timer(1.5).timeout
+	#start_next_wave()
+	
+	#TODO: This is just for testing the boss
+	cam_zoom = true
+	section_number = 1
+	wave_number = 3
 
 func _process(delta):
 	if(wave_active and get_tree().get_node_count_in_group(get_current_wave()) == 0):
@@ -61,7 +66,7 @@ func start_next_wave():
 	wave_number += 1
 	wave_active = true
 	
-	await get_tree().create_timer(7).timeout
+	await get_tree().create_timer(3).timeout
 	get_tree().call_group(get_current_wave(), "spawn_enemy")
 
 func next_section():

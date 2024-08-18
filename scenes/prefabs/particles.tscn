@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://xd2s3gfk8g6k"]
+
+[ext_resource type="Script" path="res://scripts/particles.gd" id="1_54har"]
+
+[node name="Particles" type="Node2D"]
+z_index = 99
+script = ExtResource("1_54har")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 120
+one_shot = true
+emission_shape = 2
+emission_sphere_radius = 31.55
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 129.48
+scale_amount_max = 5.0
+color = Color(0.184314, 0.356863, 0.635294, 1)

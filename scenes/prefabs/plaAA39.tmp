@@ -18,6 +18,7 @@ collision_layer = 2
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_jyt4m")
+dash_time = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-18, -16, 17, -16, 16, 16, -16, 17)
@@ -36,7 +37,6 @@ position = Vector2(0, -42)
 [node name="health" parent="." instance=ExtResource("3_udr7f")]
 
 [node name="Dash_Timer" type="Timer" parent="."]
-wait_time = 0.15
 
 [node name="Bomb_Timer" type="Timer" parent="."]
 

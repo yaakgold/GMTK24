@@ -5,6 +5,7 @@ class_name Health
 
 signal health_changed(amt)
 signal killed
+signal set_ui
 
 var current_health = 0
 

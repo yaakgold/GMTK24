@@ -38,7 +38,6 @@ position = Vector2(0, -42)
 max_health = 11
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_5ogat")]
-modulate = Color(0.162068, 0.306757, 0.0685741, 1)
 collision_layer = 4
 collision_mask = 10
 
@@ -50,6 +49,7 @@ disabled = true
 [node name="Hitbox" parent="." instance=ExtResource("5_5l256")]
 collision_layer = 4
 collision_mask = 2
+damage = 5
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(0, 0.5)

@@ -10,14 +10,15 @@ class_name LowEnemy
 @onready var hurtbox_collider = $Hurtbox/CollisionShape2D
 @onready var hitbox_collider = $Hitbox/CollisionShape2D
 
-@export var attack_range = 300.0
-@export var time_to_attack = .25
+@export var attack_range = 200.0
+@export var time_to_attack = .05
 @export var dash_speed = 400.0
 
 var proj = preload("res://scenes/prefabs/projectile.tscn")
+var part = preload("res://scenes/prefabs/particles.tscn")
 
 const SPEED = 200.0
-const DASH_SPEED_MULT = 4
+const DASH_SPEED_MULT = 6
 
 var player: Player
 var is_dashing = false
@@ -69,14 +70,15 @@ func _on_health_health_changed(amt):
 
 
 func _on_health_killed():
+	var p = part.instantiate()
+	p.global_position = global_position
+	get_tree().root.get_child(0).add_child(p)
 	queue_free()
-	#TODO: Make death animation
 
 
 func _on_hurtbox_area_entered(hitbox):
 	health.take_damage(hitbox.damage)
 	hitbox.did_damage.emit()
-
 
 func _on_dash_timer_timeout():
 	is_dashing = false
