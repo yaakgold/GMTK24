@@ -23,6 +23,7 @@ time_to_attack = 3.0
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_neyaa")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
 
@@ -34,15 +35,17 @@ position = Vector2(0, -42)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="health" parent="." instance=ExtResource("3_cxrgv")]
-max_health = 30
+max_health = 11
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_5ogat")]
+modulate = Color(0.162068, 0.306757, 0.0685741, 1)
 collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_43ct0")
+disabled = true
 
 [node name="Hitbox" parent="." instance=ExtResource("5_5l256")]
 collision_layer = 4
@@ -51,6 +54,7 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gond2")
+disabled = true
 
 [node name="Dash_Timer" type="Timer" parent="."]
 

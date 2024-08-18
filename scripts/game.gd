@@ -9,5 +9,5 @@ func _on_player_death(player):
 	player.queue_free()
 	
 	var ds = death_screen.instantiate()
-	get_tree().root.add_child(ds)
+	add_child(ds)
 	

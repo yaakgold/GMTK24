@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cufy6s7xe65yp"]
+
+[ext_resource type="LabelSettings" uid="uid://my0nq4ivjkr4" path="res://game_main_black.tres" id="1_kk36g"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_xffcs"]
+[ext_resource type="PackedScene" uid="uid://c2adget47swu4" path="res://scenes/prefabs/health.tscn" id="3_kwaco"]
+[ext_resource type="PackedScene" uid="uid://b5tpdgc5545oh" path="res://scenes/prefabs/overlap/hurtbox.tscn" id="3_mn38x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yb16"]
+size = Vector2(486, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hs51v"]
+size = Vector2(483, 41)
+
+[node name="Boss" type="CharacterBody2D"]
+z_index = 4
+script = ExtResource("1_xffcs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_7yb16")
+disabled = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "How to upload your game"
+label_settings = ExtResource("1_kk36g")
+
+[node name="health" parent="." instance=ExtResource("3_kwaco")]
+max_health = 1000
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_mn38x")]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_hs51v")
+disabled = true
+
+[editable path="Hurtbox"]

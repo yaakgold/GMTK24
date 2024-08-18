@@ -5,6 +5,8 @@ class_name CapEnemy
 @onready var proj_position = $Proj_Position_Holder/Proj_Position
 @onready var proj_position_holder = $Proj_Position_Holder
 @onready var health = $health
+@onready var collider = $CollisionPolygon2D
+@onready var hurtbox_collider = $Hurtbox/CollisionShape2D
 
 @export var attack_range = 300.0
 @export var time_between_shots = 1.0
@@ -19,9 +21,6 @@ var player: Player
 var can_fire = true
 var is_spawned = false
 
-func _ready():
-	player = get_tree().root.get_child(0).get_node("player")
-
 func _physics_process(delta):
 	if(!player or !is_spawned):
 		return
@@ -31,10 +30,7 @@ func _physics_process(delta):
 	var angle = v.angle()
 	var r = global_rotation
 	global_rotation = lerp(r, angle, delta * ROTATE_SPEED)
-	
-	#proj_position_holder.look_at(player.position) #Need to add an extra 90 deg rotation
-	#proj_position_holder.rotate(deg_to_rad(90))
-	
+
 	if(position.distance_to(player.position) > attack_range):
 		velocity = position.direction_to(player.position) * SPEED
 	else:
@@ -46,7 +42,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func spawn_enemy():
-	#TODO: Set start animation
+	collider.disabled = false
+	hurtbox_collider.disabled = false
+	player = get_tree().root.get_child(0).get_node("player")
 	is_spawned = true
 
 func attempt_fire():

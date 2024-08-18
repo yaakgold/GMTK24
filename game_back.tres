@@ -1,8 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://db3fwwehdaw3k"]
 
-[ext_resource type="FontFile" uid="uid://dctf0jxqnw51m" path="res://Lato-Black.ttf" id="1_clgk8"]
+[ext_resource type="FontFile" uid="uid://dctf0jxqnw51m" path="res://Lato-Black.ttf" id="1_w84lw"]
 
 [resource]
-font = ExtResource("1_clgk8")
+font = ExtResource("1_w84lw")
 font_size = 42
 font_color = Color(0.633757, 0.633757, 0.633757, 1)

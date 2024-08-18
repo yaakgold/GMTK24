@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://byj4558uprb0"]
+
+[ext_resource type="Script" path="res://scripts/bomb.gd" id="1_ho2ew"]
+[ext_resource type="Texture2D" uid="uid://chc4jnr65w4ns" path="res://images/Bomb.png" id="2_lpf04"]
+[ext_resource type="LabelSettings" uid="uid://diqiypv4cmxkq" path="res://game_main.tres" id="3_ayuta"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vlng"]
+radius = 32.0
+
+[node name="Bomb" type="Area2D"]
+z_index = 2
+scale = Vector2(0.5, 0.5)
+collision_layer = 5
+script = ExtResource("1_ho2ew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0vlng")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("2_lpf04")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = ExtResource("3_ayuta")
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b5tpdgc5545oh" path="res://scenes/prefabs/overlap/hurtbox.tscn" id="4_bl6vc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2tgc"]
-size = Vector2(31.0381, 44)
+size = Vector2(36.0191, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qo1b"]
 radius = 18.0
@@ -17,6 +17,7 @@ script = ExtResource("1_6d1em")
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_t2tgc")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
 
@@ -28,15 +29,17 @@ position = Vector2(0, -42)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="health" parent="." instance=ExtResource("3_ujx2n")]
-max_health = 30
+max_health = 11
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_bl6vc")]
+modulate = Color(0.162068, 0.306757, 0.0685741, 1)
 collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_5qo1b")
+disabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="health_changed" from="health" to="." method="_on_health_health_changed"]

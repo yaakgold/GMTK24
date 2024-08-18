@@ -36,7 +36,10 @@ position = Vector2(0, -42)
 
 [node name="Dash_Timer" type="Timer" parent="."]
 
+[node name="Bomb_Timer" type="Timer" parent="."]
+
 [node name="Hurtbox" parent="." instance=ExtResource("4_b1a61")]
+modulate = Color(0.162068, 0.306757, 0.0685741, 1)
 collision_layer = 2
 collision_mask = 12
 
@@ -55,6 +58,7 @@ shape = SubResource("RectangleShape2D_pn4y4")
 [connection signal="health_changed" from="health" to="." method="_on_health_health_changed"]
 [connection signal="killed" from="health" to="." method="_on_health_killed"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Bomb_Timer" to="." method="_on_bomb_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Hurtbox"]
