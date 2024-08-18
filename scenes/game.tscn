@@ -108,7 +108,8 @@ offset_top = -249.0
 offset_right = 534.0
 offset_bottom = -198.0
 rotation = 0.249582
-text = "LEFT CLICK to shoot"
+text = "LEFT CLICK to shoot
+RIGHT CLICK to bomb"
 label_settings = ExtResource("6_ekmdp")
 
 [node name="Wave 1" type="Node2D" parent="WORLD/BG/Section 0"]
@@ -820,11 +821,350 @@ label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Enemy_cap19" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(140, -170)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "R"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap19/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Enemy_cap20" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(160, -165)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "I"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap20/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Enemy_cap21" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(182, -159)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "G"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap21/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Enemy_cap22" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(212, -152)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "H"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap22/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Enemy_cap23" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(238, -145)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "T"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap23/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Enemy_cap24" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(273, -136)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "C"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap24/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Enemy_cap25" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(297, -130)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "L"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap25/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Enemy_cap26" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(313, -126)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "I"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap26/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Enemy_cap27" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(333, -121)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "C"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap27/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Enemy_cap28" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(361, -114)
+rotation = -1.31932
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "K"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28" index="1"]
+position = Vector2(-2.20096, 0.00012207)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28" index="2"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_cap28/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
 [node name="Enemy_low" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
 z_index = 3
 position = Vector2(372, -166)
 rotation = -1.31947
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -862,7 +1202,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(389, -163)
 rotation = -1.31947
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low2" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -900,7 +1239,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(419, -154)
 rotation = -1.31947
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low3" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -938,7 +1276,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(438, -153)
 rotation = -1.31947
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low4" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -976,7 +1313,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(462, -146)
 rotation = -1.31947
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low5" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1014,7 +1350,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(485, -140)
 rotation = -1.31947
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low6" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1052,7 +1387,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(508, -132)
 rotation = -1.31947
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low7" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1090,7 +1424,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-324, -188)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low8" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1128,7 +1461,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-321, -132)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low9" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1166,7 +1498,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-305, -140)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low10" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1204,7 +1535,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-309, -195)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low11" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1242,7 +1572,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-244, -211)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low12" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1280,7 +1609,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-280, -209)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low13" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1318,7 +1646,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-220, -217)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low14" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1356,7 +1683,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-198, -221)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low15" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1394,7 +1720,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-275, -149)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low16" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1432,7 +1757,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-251, -153)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low17" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1470,7 +1794,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-229, -156)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low18" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1508,7 +1831,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-211, -165)
 rotation = -1.82736
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low19" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1541,6 +1863,228 @@ text = "h"
 label_settings = ExtResource("12_ll6at")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Enemy_low20" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(390, -109)
+rotation = -1.31947
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -25.5
+offset_right = 12.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "t"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20" index="1"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low20/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Enemy_low21" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(409, -105)
+rotation = -1.31947
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -25.5
+offset_right = 12.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "o"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21" index="1"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low21/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Enemy_low22" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(440, -97)
+rotation = -1.31947
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -25.5
+offset_right = 12.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "b"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22" index="1"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low22/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Enemy_low23" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(464, -90)
+rotation = -1.31947
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -25.5
+offset_right = 12.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "o"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23" index="1"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low23/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Enemy_low24" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(489, -90)
+rotation = -1.31947
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -25.5
+offset_right = 12.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "m"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24" index="1"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low24/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Enemy_low25" parent="WORLD/BG/Section 0/Wave 2" groups=["wave_0_2"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(523, -76)
+rotation = -1.31947
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -25.5
+offset_right = 12.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "b"
+label_settings = ExtResource("12_ll6at")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25" index="1"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 0/Wave 2/Enemy_low25/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
 
 [node name="Section 1" type="Node2D" parent="WORLD/BG"]
 
@@ -1642,7 +2186,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-744, -475)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1680,7 +2223,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-731, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low2" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1719,7 +2261,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-707, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low3" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1757,7 +2298,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-689, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low4" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1795,7 +2335,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-667, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low5" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1833,7 +2372,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-634, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low6" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1871,7 +2409,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-610, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low7" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1909,7 +2446,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-577, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low8" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1947,7 +2483,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-553, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low9" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -1985,7 +2520,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-528, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low10" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2023,7 +2557,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-503, -484)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low11" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2061,7 +2594,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-460, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low12" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2099,7 +2631,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-441, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low13" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2137,7 +2668,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-420, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low14" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2175,7 +2705,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-399, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low15" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2213,7 +2742,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-368, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low16" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2251,7 +2779,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-349, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low17" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2289,7 +2816,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-324, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low18" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2327,7 +2853,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-305, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low19" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2365,7 +2890,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-275, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low20" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2403,7 +2927,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-252, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low21" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2441,7 +2964,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-228, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low22" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2479,7 +3001,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-207, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low23" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2517,7 +3038,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-176, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low24" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2555,7 +3075,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-154, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low25" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2593,7 +3112,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-131, -485)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low26" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2631,7 +3149,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-95, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low27" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2669,7 +3186,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-66, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low28" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2707,7 +3223,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-51, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low29" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2745,7 +3260,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-21, -484)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low30" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2783,7 +3297,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(13, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low31" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2821,7 +3334,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(35, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low32" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2859,7 +3371,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(55, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low33" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2897,7 +3408,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(74, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low34" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2935,7 +3445,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(91, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low35" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -2973,7 +3482,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(116, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low36" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3011,7 +3519,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(147, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low37" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3049,7 +3556,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(168, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low38" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3087,7 +3593,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(189, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low39" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3125,7 +3630,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(207, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low40" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3163,7 +3667,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(227, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low41" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3201,7 +3704,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(249, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low42" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3239,7 +3741,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(267, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low43" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3277,7 +3778,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(282, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low44" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3315,7 +3815,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(299, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low45" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3353,7 +3852,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(332, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low46" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3391,7 +3889,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(355, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low47" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3429,7 +3926,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(379, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low48" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3467,7 +3963,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(410, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low49" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3505,7 +4000,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(425, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low50" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3543,7 +4037,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(455, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low51" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3581,7 +4074,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(478, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low52" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3619,7 +4111,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(500, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low53" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3657,7 +4148,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(519, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low54" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3695,7 +4185,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(539, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low55" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3733,7 +4222,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(560, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low56" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3771,7 +4259,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(583, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low57" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3809,7 +4296,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(612, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low58" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3847,7 +4333,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(629, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low59" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3885,7 +4370,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(650, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low60" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3923,7 +4407,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(670, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low61" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3961,7 +4444,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(703, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low62" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -3999,7 +4481,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(722, -479)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low63" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4037,7 +4518,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(747, -478)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low64" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4075,7 +4555,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-775, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low65" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4113,7 +4592,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-758, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low66" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4151,7 +4629,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-736, -431)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low67" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4189,7 +4666,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-703, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low68" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4227,7 +4703,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-645, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low69" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4265,7 +4740,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-620, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low70" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4303,7 +4777,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-581, -430)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low71" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4341,7 +4814,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-552, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low72" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4379,7 +4851,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-540, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low73" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4417,7 +4888,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-528, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low74" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4455,7 +4925,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-496, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low75" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4493,7 +4962,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-471, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low76" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4531,7 +4999,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-450, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low77" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4569,7 +5036,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-415, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low78" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4607,7 +5073,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-391, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low79" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4645,7 +5110,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-353, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low80" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4683,7 +5147,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-330, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low81" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4721,7 +5184,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-311, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low82" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4759,7 +5221,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-294, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low83" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4797,7 +5258,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-260, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low84" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4835,7 +5295,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-240, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low85" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4873,7 +5332,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-203, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low86" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4911,7 +5369,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-182, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low87" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4949,7 +5406,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-158, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low88" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -4987,7 +5443,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-133, -431)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low89" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5025,7 +5480,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-102, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low90" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5063,7 +5517,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-88, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low91" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5101,7 +5554,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-53, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low92" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5139,7 +5591,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-16, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low93" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5177,7 +5628,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(6, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low94" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5215,7 +5665,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(29, -431)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low95" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5253,7 +5702,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(65, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low96" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5291,7 +5739,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(82, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low97" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5329,7 +5776,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(113, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low98" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5367,7 +5813,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(134, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low99" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5405,7 +5850,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(168, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low100" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5443,7 +5887,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(189, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low101" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5481,7 +5924,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(214, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low102" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5519,7 +5961,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(236, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low103" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5557,7 +5998,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(261, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low104" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5595,7 +6035,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(283, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low105" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5633,7 +6072,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(321, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low106" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5671,7 +6109,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(343, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low107" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5709,7 +6146,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(367, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low108" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5747,7 +6183,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(401, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low109" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5785,7 +6220,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(414, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low110" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5823,7 +6257,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(426, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low111" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5861,7 +6294,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(443, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low112" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5899,7 +6331,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(464, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low113" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5937,7 +6368,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(479, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low114" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -5975,7 +6405,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(510, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low115" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6013,7 +6442,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(528, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low116" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6051,7 +6479,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(545, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low117" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6089,7 +6516,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(564, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low118" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6127,7 +6553,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(584, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low119" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6165,7 +6590,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(617, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low120" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6203,7 +6627,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(637, -425)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low121" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6241,7 +6664,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(661, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low122" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6279,7 +6701,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(694, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low123" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6317,7 +6738,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(711, -424)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low124" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6355,7 +6775,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(733, -431)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low125" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6393,7 +6812,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-770, -370)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low126" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6431,7 +6849,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-748, -371)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low127" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6469,7 +6886,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-723, -371)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low128" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6507,7 +6923,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-701, -370)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low129" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6545,7 +6960,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-686, -370)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low130" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6755,7 +7169,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-745, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6793,7 +7206,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-721, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low2" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6831,7 +7243,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-686, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low3" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6869,7 +7280,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-665, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low4" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6907,7 +7317,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-642, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low5" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6945,7 +7354,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-609, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low6" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -6983,7 +7391,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-588, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low7" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7021,7 +7428,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-564, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low8" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7059,7 +7465,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-539, -696)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low9" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7097,7 +7502,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-508, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low10" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7135,7 +7539,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-494, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low11" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7173,7 +7576,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-463, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low12" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7211,7 +7613,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-430, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low13" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7249,7 +7650,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-408, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low14" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7287,7 +7687,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-385, -696)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low15" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7325,7 +7724,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-349, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low16" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7363,7 +7761,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-315, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low17" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7401,7 +7798,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-292, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low18" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7439,7 +7835,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-258, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low19" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7477,7 +7872,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-242, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low20" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7515,7 +7909,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-230, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low21" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7553,7 +7946,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-214, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low22" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7591,7 +7983,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-192, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low23" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7629,7 +8020,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-173, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low24" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7667,7 +8057,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-156, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low25" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7705,7 +8094,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-132, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low26" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7743,7 +8131,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-102, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low27" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7781,7 +8168,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-82, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low28" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7819,7 +8205,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-58, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low29" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7857,7 +8242,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-26, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low30" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7895,7 +8279,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(18, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low31" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7933,7 +8316,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(42, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low32" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -7971,7 +8353,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(67, -696)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low33" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8009,7 +8390,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(98, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low34" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8047,7 +8427,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(112, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low35" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8085,7 +8464,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(143, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low36" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8123,7 +8501,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(165, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low37" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8161,7 +8538,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(189, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low38" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8199,7 +8575,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(211, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low39" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8237,7 +8612,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(242, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low40" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8275,7 +8649,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(264, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low41" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8313,7 +8686,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(287, -696)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low42" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8351,7 +8723,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(323, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low43" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8389,7 +8760,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(343, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low44" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8427,7 +8797,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(373, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low45" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8465,7 +8834,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(398, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low46" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8503,7 +8871,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(419, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low47" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8541,7 +8908,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(436, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low48" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8579,7 +8945,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(456, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low49" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8617,7 +8982,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(480, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low50" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8655,7 +9019,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(516, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low51" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8693,7 +9056,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(538, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low52" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8731,7 +9093,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(563, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low53" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8769,7 +9130,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(586, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low54" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8807,7 +9167,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(609, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low55" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8845,7 +9204,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(625, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low56" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8883,7 +9241,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(671, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low57" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8921,7 +9278,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(685, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low58" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8959,7 +9315,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(705, -690)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low59" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -8997,7 +9352,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(729, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low60" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9035,7 +9389,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(749, -689)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low61" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9073,7 +9426,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-770, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low62" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9111,7 +9463,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-751, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low63" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9149,7 +9500,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-735, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low64" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9187,7 +9537,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-714, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low65" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9225,7 +9574,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-670, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low66" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9263,7 +9611,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-647, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low67" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9301,7 +9648,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-602, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low68" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9339,7 +9685,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-585, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low69" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9377,7 +9722,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-571, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low70" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9415,7 +9759,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-550, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low71" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9453,7 +9796,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-528, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low72" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9491,7 +9833,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-505, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low73" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9529,7 +9870,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-482, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low74" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9567,7 +9907,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-460, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low75" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9605,7 +9944,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-442, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low76" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9643,7 +9981,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-417, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low77" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9681,7 +10018,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-398, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low78" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9719,7 +10055,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-380, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low79" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9757,7 +10092,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-357, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low80" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9795,7 +10129,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-334, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low81" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9833,7 +10166,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-310, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low82" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9871,7 +10203,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-287, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low83" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9909,7 +10240,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-243, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low84" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9947,7 +10277,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-221, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low85" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -9985,7 +10314,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-198, -642)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low86" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10023,7 +10351,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-162, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low87" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10061,7 +10388,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-123, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low88" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10099,7 +10425,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-107, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low89" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10137,7 +10462,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-85, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low90" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10175,7 +10499,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-62, -642)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low91" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10213,7 +10536,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-8, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low92" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10251,7 +10573,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(12, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low93" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10289,7 +10610,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(36, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low94" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10327,7 +10647,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(79, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low95" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10365,7 +10684,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(101, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low96" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10403,7 +10721,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(121, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low97" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10441,7 +10758,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(145, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low98" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10479,7 +10795,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(170, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low99" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10517,7 +10832,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(194, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low100" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10555,7 +10869,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(218, -641)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low101" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10593,7 +10906,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(253, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low102" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10631,7 +10943,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(292, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low103" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10669,7 +10980,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(304, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low104" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10707,7 +11017,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(319, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low105" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10745,7 +11054,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(337, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low106" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10783,7 +11091,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(350, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low107" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10821,7 +11128,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(417, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low108" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10859,7 +11165,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(456, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low109" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10897,7 +11202,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(478, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low110" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10935,7 +11239,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(502, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low111" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -10973,7 +11276,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(527, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low112" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11011,7 +11313,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(549, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low113" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11049,7 +11350,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(569, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low114" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11087,7 +11387,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(610, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low115" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11125,7 +11424,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(661, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low116" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11163,7 +11461,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(681, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low117" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11201,7 +11498,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(698, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low118" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11239,7 +11535,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(722, -635)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low119" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11277,7 +11572,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(745, -636)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low120" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11315,7 +11609,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-770, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low121" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11353,7 +11646,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-748, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low122" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11391,7 +11683,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-725, -588)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low123" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11429,7 +11720,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-689, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low124" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11467,7 +11757,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-670, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low125" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11505,7 +11794,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-660, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low126" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11543,7 +11831,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-636, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low127" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11581,7 +11868,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-613, -582)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low128" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11619,7 +11905,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-589, -582)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low129" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11657,7 +11942,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-559, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low130" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11695,7 +11979,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-540, -582)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low131" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11733,7 +12016,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-515, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low132" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11771,7 +12053,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-492, -582)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low133" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11809,7 +12090,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-464, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low134" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11847,7 +12127,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-451, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low135" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11885,7 +12164,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-438, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low136" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11923,7 +12201,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-426, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low137" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11961,7 +12238,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-406, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low138" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -11999,7 +12275,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-389, -582)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low139" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12037,7 +12312,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-360, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low140" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12075,7 +12349,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-340, -582)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low141" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12113,7 +12386,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-316, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low142" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12151,7 +12423,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-285, -582)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low143" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12189,7 +12460,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-260, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low144" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12227,7 +12497,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-241, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low145" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12265,7 +12534,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-221, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low146" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12303,7 +12571,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-203, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low147" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12341,7 +12608,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-191, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low148" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12379,7 +12645,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-176, -580)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low149" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12417,7 +12682,6 @@ vertical_alignment = 1
 z_index = 3
 position = Vector2(-162, -581)
 rotation = -1.5708
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 2/Enemy_low150" index="0"]
 position = Vector2(-3.14142, 1.83896)
@@ -12539,6 +12803,26 @@ script = ExtResource("4_2ixq7")
 [editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap17/Hurtbox"]
 [editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap18"]
 [editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap18/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap19"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap19/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap20"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap20/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap21"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap21/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap22"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap22/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap23"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap23/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap24"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap24/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap25"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap25/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap26"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap26/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap27"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap27/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap28"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_cap28/Hurtbox"]
 [editable path="WORLD/BG/Section 0/Wave 2/Enemy_low"]
 [editable path="WORLD/BG/Section 0/Wave 2/Enemy_low/Hurtbox"]
 [editable path="WORLD/BG/Section 0/Wave 2/Enemy_low/Hitbox"]
@@ -12596,6 +12880,24 @@ script = ExtResource("4_2ixq7")
 [editable path="WORLD/BG/Section 0/Wave 2/Enemy_low19"]
 [editable path="WORLD/BG/Section 0/Wave 2/Enemy_low19/Hurtbox"]
 [editable path="WORLD/BG/Section 0/Wave 2/Enemy_low19/Hitbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low20"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low20/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low20/Hitbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low21"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low21/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low21/Hitbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low22"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low22/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low22/Hitbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low23"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low23/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low23/Hitbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low24"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low24/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low24/Hitbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low25"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low25/Hurtbox"]
+[editable path="WORLD/BG/Section 0/Wave 2/Enemy_low25/Hitbox"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_cap"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_cap/Hurtbox"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_cap2"]
