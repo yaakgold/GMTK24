@@ -11,6 +11,11 @@ class_name Player
 @onready var bomb_timer = $Bomb_Timer
 @onready var sprite = $CollisionPolygon2D/Sprite2D
 
+@onready var dash_audio = $Dash_Audio
+@onready var fire_audio = $Fire_Audio
+@onready var hit_audio = $Hit_Audio
+@onready var death_audio = $Death_Audio
+
 @export var dash_time = .15
 @export var game: GameController
 
@@ -35,6 +40,7 @@ func _physics_process(delta):
 
 func update_movement(delta):
 	if(!is_dashing && Input.is_action_just_pressed("dash")):
+		dash_audio.play()
 		sprite.texture = DASH_ICON
 		is_dashing = true
 		collider.disabled = true
@@ -65,6 +71,7 @@ func aim_and_fire():
 	
 	#Fire
 	if(Input.is_action_pressed("fire") and can_fire):
+		fire_audio.play()
 		can_fire = false
 		fire_timer.start()
 		var p: Projectile = proj.instantiate()
@@ -76,6 +83,7 @@ func aim_and_fire():
 		var b: Bomb = bomb.instantiate()
 		get_tree().root.add_child(b)
 		b.position = global_position
+		b.is_player = true
 		can_place_bomb = false
 		bomb_timer.start(.75)
 		
@@ -86,7 +94,8 @@ func _on_health_health_changed(amt):
 		print("Yummy: " + str(amt))
 
 func _on_health_killed():
-	var game: GameController = get_tree().root.get_child(0)
+	death_audio.play()
+	var game: GameController = get_tree().root.get_child(2)
 	game.player_death.emit(self)
 
 func _on_dash_timer_timeout():
@@ -98,6 +107,7 @@ func _on_dash_timer_timeout():
 func _on_hurtbox_area_entered(hitbox):
 	if(hitbox is Projectile or (hitbox.get_parent() is LowEnemy and hitbox.get_parent().is_dashing)):
 		health.take_damage(hitbox.damage)
+		hit_audio.play()
 
 func _on_bomb_timer_timeout():
 	can_place_bomb = true

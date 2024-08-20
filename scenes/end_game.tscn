@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3241eyndfefn"]
+
+[ext_resource type="Texture2D" uid="uid://casx4pbbm5xh3" path="res://images/BG.png" id="1_i3mms"]
+[ext_resource type="Script" path="res://scripts/end_game.gd" id="1_l5c1s"]
+[ext_resource type="VideoStream" path="res://videos/Winner_longer.ogv" id="3_v86wj"]
+
+[sub_resource type="Gradient" id="Gradient_ibt2p"]
+offsets = PackedFloat32Array(0, 0.328, 0.54, 0.748, 1)
+colors = PackedColorArray(0.895172, 0.000200031, 0.774173, 1, 0.318022, 0.343049, 0.229479, 1, 0.326443, 0.5737, 0, 1, 0.967947, 0.69137, 0, 1, 0, 0.288531, 0.288531, 1)
+
+[node name="EndGame" type="Node2D"]
+script = ExtResource("1_l5c1s")
+
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("1_i3mms")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BG"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1920.0
+offset_top = -1084.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_v86wj")
+autoplay = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 100
+position = Vector2(-405, -327)
+amount = 1703
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 147.95
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_ibt2p")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+z_index = 100
+position = Vector2(487, -299)
+amount = 1703
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 27.14
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_ibt2p")
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="."]
+z_index = 100
+position = Vector2(-637, 265)
+amount = 1703
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 147.95
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_ibt2p")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

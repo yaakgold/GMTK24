@@ -16,4 +16,4 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 129.48
 scale_amount_max = 5.0
-color = Color(0.184314, 0.356863, 0.635294, 1)
+color = Color(0.47161, 0.000880889, 0.607302, 1)

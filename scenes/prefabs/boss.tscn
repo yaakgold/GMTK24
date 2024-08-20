@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cufy6s7xe65yp"]
+[gd_scene load_steps=9 format=3 uid="uid://cufy6s7xe65yp"]
 
 [ext_resource type="LabelSettings" uid="uid://my0nq4ivjkr4" path="res://game_main_black.tres" id="1_kk36g"]
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_xffcs"]
 [ext_resource type="PackedScene" uid="uid://c2adget47swu4" path="res://scenes/prefabs/health.tscn" id="3_kwaco"]
 [ext_resource type="PackedScene" uid="uid://b5tpdgc5545oh" path="res://scenes/prefabs/overlap/hurtbox.tscn" id="3_mn38x"]
+[ext_resource type="AudioStream" uid="uid://dbgorqbh2nqxy" path="res://audio/new/Laser_Shoot.wav" id="5_dn5ep"]
+[ext_resource type="AudioStream" uid="uid://d3qx1bp4vabvg" path="res://audio/new/Hit_Hurt.wav" id="6_m2d5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7yb16"]
 size = Vector2(486, 39)
@@ -269,6 +271,14 @@ position = Vector2(131, -41)
 
 [node name="Node2D28" type="Node2D" parent="SpawnPoints"]
 position = Vector2(191, 37)
+
+[node name="Fire_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dn5ep")
+bus = &"SFX"
+
+[node name="Hit_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_m2d5a")
+bus = &"SFX"
 
 [connection signal="killed" from="health" to="." method="_on_health_killed"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d1ceq43rjlt76"]
+[gd_scene load_steps=38 format=3 uid="uid://d1ceq43rjlt76"]
 
 [ext_resource type="PackedScene" uid="uid://dysudfsa7cpo" path="res://scenes/prefabs/player.tscn" id="1_4n2m1"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_o0jjk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://baf3ecwma33wu" path="res://images/gmtk-2022b_T.png" id="5_vojhw"]
 [ext_resource type="PackedScene" uid="uid://bfm4sdaawsl1h" path="res://scenes/prefabs/enemy_cap.tscn" id="6_a6lok"]
 [ext_resource type="LabelSettings" uid="uid://db3fwwehdaw3k" path="res://game_back.tres" id="6_ekmdp"]
+[ext_resource type="PackedScene" uid="uid://bl4mdbfopn6ho" path="res://scenes/prefabs/enemy_num.tscn" id="7_2f0q1"]
 [ext_resource type="Texture2D" uid="uid://by2v02pwfqhwo" path="res://images/GMTK_G.png" id="7_ft41r"]
 [ext_resource type="Texture2D" uid="uid://ddqed4gw7ekys" path="res://images/GMTK_M.png" id="7_w6crb"]
 [ext_resource type="Texture2D" uid="uid://fr83n367tlxr" path="res://images/GMTK_T.png" id="8_pg3or"]
@@ -24,10 +25,11 @@
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="20_gjjgj"]
 [ext_resource type="Texture2D" uid="uid://rsgkx3ihsdu0" path="res://images/HealthBar_BG.png" id="20_huifp"]
 [ext_resource type="Script" path="res://scripts/pasue_node.gd" id="20_i8acd"]
-[ext_resource type="VideoStream" uid="uid://7pwrer0rp431" path="res://videos/SubmitGame.ogv" id="21_75wyv"]
+[ext_resource type="VideoStream" path="res://videos/SubmitGame.ogv" id="21_75wyv"]
 [ext_resource type="Texture2D" uid="uid://c1mu1yqpm2lm4" path="res://images/HealthBar_FG.png" id="21_lj1it"]
 [ext_resource type="Texture2D" uid="uid://byytbwewgoest" path="res://images/FirstFrame.png" id="22_3c3tr"]
 [ext_resource type="AudioStream" uid="uid://diffx6c7brjm1" path="res://audio/MouseClick.mp3" id="23_qp735"]
+[ext_resource type="Texture2D" uid="uid://85k45633y2jh" path="res://images/DB.png" id="24_kfsjp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt4dd"]
 size = Vector2(183.62, 186.011)
@@ -2606,154 +2608,6 @@ grow_vertical = 2
 rotation = 1.5708
 pivot_offset = Vector2(8, 25)
 text = "e"
-label_settings = ExtResource("15_2l23v")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Enemy_low8" parent="WORLD/BG/Section 1/Wave 1" groups=["wave_1_1"] instance=ExtResource("13_2uxav")]
-z_index = 3
-position = Vector2(-577, -479)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low8" index="0"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 1/Wave 1/Enemy_low8/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low8/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low8/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
-
-[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low8"]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -11.5
-offset_top = -25.5
-offset_right = 11.5
-offset_bottom = 25.5
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.5708
-pivot_offset = Vector2(8, 25)
-text = "1"
-label_settings = ExtResource("15_2l23v")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Enemy_low9" parent="WORLD/BG/Section 1/Wave 1" groups=["wave_1_1"] instance=ExtResource("13_2uxav")]
-z_index = 3
-position = Vector2(-553, -479)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low9" index="0"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 1/Wave 1/Enemy_low9/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low9/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low9/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
-
-[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low9"]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -11.5
-offset_top = -25.5
-offset_right = 11.5
-offset_bottom = 25.5
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.5708
-pivot_offset = Vector2(8, 25)
-text = "0"
-label_settings = ExtResource("15_2l23v")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Enemy_low10" parent="WORLD/BG/Section 1/Wave 1" groups=["wave_1_1"] instance=ExtResource("13_2uxav")]
-z_index = 3
-position = Vector2(-528, -479)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low10" index="0"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 1/Wave 1/Enemy_low10/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low10/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low10/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
-
-[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low10"]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -11.5
-offset_top = -25.5
-offset_right = 11.5
-offset_bottom = 25.5
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.5708
-pivot_offset = Vector2(8, 25)
-text = "0"
-label_settings = ExtResource("15_2l23v")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Enemy_low11" parent="WORLD/BG/Section 1/Wave 1" groups=["wave_1_1"] instance=ExtResource("13_2uxav")]
-z_index = 3
-position = Vector2(-503, -484)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low11" index="0"]
-position = Vector2(-3.14142, 1.83896)
-
-[node name="Proj_Position" parent="WORLD/BG/Section 1/Wave 1/Enemy_low11/Proj_Position_Holder" index="0"]
-position = Vector2(0, -24.005)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low11/Hurtbox" index="0"]
-position = Vector2(-3.26576, 1.35468)
-
-[node name="CollisionShape2D" parent="WORLD/BG/Section 1/Wave 1/Enemy_low11/Hitbox" index="0"]
-position = Vector2(-3.26572, 1.35471)
-
-[node name="Label3" type="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_low11"]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -11.5
-offset_top = -25.5
-offset_right = 11.5
-offset_bottom = 25.5
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.5708
-pivot_offset = Vector2(8, 25)
-text = "%"
 label_settings = ExtResource("15_2l23v")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -7160,6 +7014,34 @@ text = "."
 label_settings = ExtResource("15_2l23v")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Enemy_num" parent="WORLD/BG/Section 1/Wave 1" groups=["wave_1_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(-573, -475)
+
+[node name="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_num" index="0"]
+text = "1"
+label_settings = ExtResource("15_2l23v")
+
+[node name="Enemy_num2" parent="WORLD/BG/Section 1/Wave 1" groups=["wave_1_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(-549, -475)
+
+[node name="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_num2" index="0"]
+text = "0"
+label_settings = ExtResource("15_2l23v")
+
+[node name="Enemy_num3" parent="WORLD/BG/Section 1/Wave 1" groups=["wave_1_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(-524, -475)
+
+[node name="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_num3" index="0"]
+text = "0"
+label_settings = ExtResource("15_2l23v")
+
+[node name="Enemy_num4" parent="WORLD/BG/Section 1/Wave 1" groups=["wave_1_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(-495, -475)
+
+[node name="Label" parent="WORLD/BG/Section 1/Wave 1/Enemy_num4" index="0"]
+text = "%"
+label_settings = ExtResource("15_2l23v")
 
 [node name="Wave 2" type="Node2D" parent="WORLD/BG/Section 1"]
 
@@ -12908,50 +12790,3713 @@ position = Vector2(-14, -892)
 
 [node name="Wave 4" type="Node2D" parent="WORLD/BG/Section 1"]
 
-[node name="PasueNode" type="Node2D" parent="WORLD/BG/Section 1/Wave 4" node_paths=PackedStringArray("vsp") groups=["wave_2_1"]]
+[node name="PasueNode" type="Node2D" parent="WORLD/BG/Section 1/Wave 4" groups=["wave_2_1"]]
 script = ExtResource("20_i8acd")
-vsp = NodePath("../VideoStreamPlayer")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="WORLD/BG/Section 1/Wave 4"]
-z_index = 101
-offset_left = -948.0
-offset_top = -2076.0
-offset_right = 972.0
-offset_bottom = -988.0
+z_index = 90
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -2075.0
+offset_right = 960.0
+offset_bottom = -987.0
+grow_horizontal = 2
+grow_vertical = 2
 stream = ExtResource("21_75wyv")
 
-[node name="TextureRect" type="TextureRect" parent="WORLD/BG/Section 1/Wave 4/VideoStreamPlayer"]
-z_index = -5
-layout_mode = 1
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="WORLD/BG/Section 1/Wave 4/VideoStreamPlayer"]
+stream = ExtResource("23_qp735")
+
+[node name="TextureRect" type="TextureRect" parent="WORLD/BG/Section 1/Wave 4"]
+z_index = 6
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -875.0
-offset_top = -503.0
-offset_right = 875.0
-offset_bottom = 503.0
+offset_left = -960.0
+offset_top = -2076.0
+offset_right = 960.0
+offset_bottom = -988.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("22_3c3tr")
 
-[node name="ColorRect" type="ColorRect" parent="WORLD/BG/Section 1/Wave 4/VideoStreamPlayer"]
-z_index = -6
-layout_mode = 0
-offset_left = -178.0
-offset_top = 41.0
-offset_right = 2059.0
-offset_bottom = 1051.0
+[node name="ColorRect" type="ColorRect" parent="WORLD/BG/Section 1/Wave 4"]
+z_index = 4
+offset_left = -1126.0
+offset_top = -2035.0
+offset_right = 1111.0
+offset_bottom = -1025.0
 color = Color(0, 0, 0, 1)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="WORLD/BG/Section 1/Wave 4/VideoStreamPlayer"]
-stream = ExtResource("23_qp735")
 
 [node name="Section 2" type="Node2D" parent="WORLD/BG"]
 position = Vector2(0, -27000)
 
 [node name="Wave 1" type="Node2D" parent="WORLD/BG/Section 2"]
+
+[node name="Enemy_cap" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-492, -122)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "I"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap2" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-469, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap2" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap2" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap2/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap2"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "D"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap3" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-293, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap3" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap3" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap3/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap3"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "N"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap4" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-260, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap4" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap4" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap4/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap4"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "A"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap5" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-225, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap5" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap5" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap5/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap5"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "M"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap6" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-192, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap6" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap6" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap6/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap6"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "E"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap7" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(24, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap7" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap7" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap7/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap7"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "C"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap8" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(53, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap8" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap8" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap8/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap8"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "R"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap9" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(79, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap9" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap9" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap9/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap9"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "E"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap10" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(107, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap10" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap10" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap10/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap10"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "A"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap11" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(135, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap11" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap11" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap11/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap11"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "T"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap12" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(167, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap12" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap12" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap12/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap12"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "O"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap13" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(197, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap13" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap13" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap13/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap13"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "R"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap14" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(256, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap14" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap14" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap14/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap14"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "I"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap15" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(275, -123)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap15" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap15" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap15/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap15"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "S"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap16" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(295, -122)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap16" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap16" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap16/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap16"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "_"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap17" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(326, -122)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap17" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap17" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap17/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap17"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "W"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap18" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(355, -122)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap18" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap18" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap18/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap18"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "I"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap19" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(379, -122)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap19" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap19" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap19/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap19"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "N"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap20" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(413, -122)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap20" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap20" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap20/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap20"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "N"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap21" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(441, -122)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap21" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap21" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap21/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap21"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "E"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap22" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(468, -122)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap22" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap22" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap22/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap22"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "R"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap23" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-289, -64)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap23" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap23" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap23/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap23"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "M"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap24" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-139, -64)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap24" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap24" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap24/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap24"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "B"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap25" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(25, -64)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap25" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap25" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap25/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap25"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "D"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap26" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(103, -64)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap26" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap26" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap26/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap26"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "D"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap27" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(25, -5)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap27" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap27" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap27/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap27"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "D"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap28" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-181, -5)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap28" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap28" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap28/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap28"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "S"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap29" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-297, -5)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap29" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap29" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap29/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap29"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "S"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap30" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-297, 54)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap30" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap30" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap30/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap30"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "S"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap31" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-149, 54)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap31" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap31" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap31/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap31"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "B"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap32" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(27, 54)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap32" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap32" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap32/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap32"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "Q"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap33" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(25, 114)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap33" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap33" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap33/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap33"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "A"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap34" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-276, 114)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap34" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap34" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap34/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap34"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "A"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap35" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-126, 114)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap35" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap35" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap35/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap35"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "A"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap36" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-300, 114)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap36" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap36" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap36/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap36"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "J"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap37" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-253, 114)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap37" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap37" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap37/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap37"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "I"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap38" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-233, 114)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap38" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap38" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap38/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap38"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "L"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap39" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-208, 114)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap39" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap39" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap39/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap39"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "B"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap40" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-181, 113)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap40" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap40" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap40/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap40"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "R"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap41" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-154, 113)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap41" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap41" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap41/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap41"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "E"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap42" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-95, 113)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap42" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap42" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap42/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap42"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "K"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap43" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-67, 113)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap43" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap43" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap43/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap43"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "E"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_cap44" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("6_a6lok")]
+z_index = 3
+position = Vector2(-40, 113)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap44" index="0"]
+position = Vector2(-0.990479, -4)
+
+[node name="Proj_Position_Holder" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap44" index="1"]
+rotation = 1.5708
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap44/Proj_Position_Holder" index="0"]
+position = Vector2(0, -30.37)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_cap44"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -24.9999
+offset_right = 22.0
+offset_bottom = 26.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(22, 25)
+text = "R"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-260, -67)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "o"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low2" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-239, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low2" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low2/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low2/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low2/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low2"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "t"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low3" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-218, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low3" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low3/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low3/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low3/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low3"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "h"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low4" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-193, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low4" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low4/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low4/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low4/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low4"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "e"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low5" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-173, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low5" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low5/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low5/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low5/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low5"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "r"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low6" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-116, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low6" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low6/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low6/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low6/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low6"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "a"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low7" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-96, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low7" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low7/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low7/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low7/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low7"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "s"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low8" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-74, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low8" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low8/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low8/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low8/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low8"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "e"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low9" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(51, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low9" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low9/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low9/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low9/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low9"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "u"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low10" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(75, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low10" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low10/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low10/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low10/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low10"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "z"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low11" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(153, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low11" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low11/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low11/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low11/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low11"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "z"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low12" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(129, -67)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low12" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low12/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low12/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low12/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low12"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "u"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low13" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(258, -66)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low13" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low13/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low13/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low13/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low13"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "n"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low14" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(283, -67)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low14" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low14/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low14/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low14/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low14"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "o"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low15" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(258, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low15" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low15/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low15/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low15/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low15"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "n"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low16" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(283, -8)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low16" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low16/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low16/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low16/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low16"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "o"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low17" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(258, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low17" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low17/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low17/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low17/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low17"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "n"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low18" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(283, 51)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low18" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low18/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low18/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low18/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low18"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "o"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low19" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(258, 111)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low19" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low19/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low19/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low19/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low19"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "n"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low20" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(283, 110)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low20" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low20/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low20/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low20/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low20"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "o"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low21" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-282, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low21" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low21/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low21/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low21/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low21"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "l"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low22" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-270, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low22" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low22/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low22/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low22/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low22"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "i"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low23" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-253, -13)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low23" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low23/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low23/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low23/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low23"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "m"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low24" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-216, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low24" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low24/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low24/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low24/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low24"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "y"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low25" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-162, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low25" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low25/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low25/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low25/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low25"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "c"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low26" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-140, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low26" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low26/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low26/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low26/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low26"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "a"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low27" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-122, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low27" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low27/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low27/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low27/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low27"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "l"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low28" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-105, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low28" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low28/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low28/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low28/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low28"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "e"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low29" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(51, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low29" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low29/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low29/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low29/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low29"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "a"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low30" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(71, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low30" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low30/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low30/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low30/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low30"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "r"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low31" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(87, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low31" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low31/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low31/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low31/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low31"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "i"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low32" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(104, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low32" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low32/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low32/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low32/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low32"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "u"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low33" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(127, -7)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low33" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low33/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low33/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low33/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low33"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "s"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low34" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(173, -8)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low34" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low34/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low34/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low34/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low34"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "o"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low35" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-278, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low35" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low35/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low35/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low35/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low35"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "c"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low36" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-256, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low36" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low36/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low36/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low36/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low36"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "a"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low37" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-238, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low37" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low37/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low37/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low37/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low37"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "l"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low38" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-226, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low38" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low38/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low38/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low38/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low38"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "i"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low39" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-209, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low39" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low39/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low39/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low39/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low39"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "n"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low40" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-184, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low40" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low40/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low40/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low40/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low40"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "g"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low41" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-131, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low41" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low41/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low41/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low41/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low41"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "i"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low42" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-114, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low42" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low42/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low42/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low42/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low42"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "n"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low43" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-89, 51)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low43" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low43/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low43/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low43/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low43"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "k"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low44" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(-64, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low44" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low44/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low44/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low44/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low44"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "y"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low45" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(53, 51)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low45" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low45/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low45/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low45/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low45"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "u"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low46" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(78, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low46" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low46/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low46/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low46/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low46"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "a"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low47" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(101, 51)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low47" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low47/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low47/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low47/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low47"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "k"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low48" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(125, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low48" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low48/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low48/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low48/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low48"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "z"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low49" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(147, 52)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low49" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low49/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low49/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low49/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low49"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "a"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low50" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(50, 111)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low50" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low50/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low50/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low50/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low50"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "z"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low51" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(72, 110)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low51" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low51/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low51/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low51/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low51"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "u"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low52" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(94, 111)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low52" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low52/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low52/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low52/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low52"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "r"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low53" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(115, 111)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low53" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low53/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low53/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low53/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low53"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "e"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low54" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(137, 111)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low54" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low54/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low54/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low54/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low54"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "z"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low55" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(159, 111)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low55" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low55/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low55/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low55/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low55"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "e"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low56" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(179, 111)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low56" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low56/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low56/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low56/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low56"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "r"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_low57" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("13_2uxav")]
+z_index = 3
+position = Vector2(200, 110)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low57" index="0"]
+position = Vector2(-3.14142, 1.83896)
+
+[node name="Proj_Position" parent="WORLD/BG/Section 2/Wave 1/Enemy_low57/Proj_Position_Holder" index="0"]
+position = Vector2(0, -24.005)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low57/Hurtbox" index="0"]
+position = Vector2(-3.26576, 1.35468)
+
+[node name="CollisionShape2D" parent="WORLD/BG/Section 2/Wave 1/Enemy_low57/Hitbox" index="0"]
+position = Vector2(-3.26572, 1.35471)
+
+[node name="Label" type="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_low57"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -25.4999
+offset_right = 11.5
+offset_bottom = 25.5001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 25)
+text = "o"
+label_settings = ExtResource("15_jn68l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_num" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(-336, -63)
+
+[node name="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_num" index="0"]
+text = "1"
+label_settings = ExtResource("15_jn68l")
+
+[node name="Enemy_num2" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(-336, -3)
+
+[node name="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_num2" index="0"]
+text = "2"
+label_settings = ExtResource("15_jn68l")
+
+[node name="Enemy_num3" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(-336, 55)
+
+[node name="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_num3" index="0"]
+text = "3"
+label_settings = ExtResource("15_jn68l")
+
+[node name="Enemy_num4" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(-337, 114)
+
+[node name="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_num4" index="0"]
+text = "4"
+label_settings = ExtResource("15_jn68l")
+
+[node name="Enemy_num5" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(152, -4)
+
+[node name="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_num5" index="0"]
+text = "0"
+label_settings = ExtResource("15_jn68l")
+
+[node name="Enemy_num6" parent="WORLD/BG/Section 2/Wave 1" groups=["wave_3_1"] instance=ExtResource("7_2f0q1")]
+position = Vector2(201, -3)
+
+[node name="Label" parent="WORLD/BG/Section 2/Wave 1/Enemy_num6" index="0"]
+text = "2"
+label_settings = ExtResource("15_jn68l")
+
+[node name="TextureRect" type="TextureRect" parent="WORLD/BG/Section 2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.5
+offset_top = -147.5
+offset_right = 504.5
+offset_bottom = 147.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_kfsjp")
 
 [node name="player" parent="." node_paths=PackedStringArray("game") instance=ExtResource("1_4n2m1")]
 unique_name_in_owner = true
@@ -13176,18 +16721,6 @@ libraries = {
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_low7"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_low7/Hurtbox"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_low7/Hitbox"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low8"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low8/Hurtbox"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low8/Hitbox"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low9"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low9/Hurtbox"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low9/Hitbox"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low10"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low10/Hurtbox"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low10/Hitbox"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low11"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low11/Hurtbox"]
-[editable path="WORLD/BG/Section 1/Wave 1/Enemy_low11/Hitbox"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_low12"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_low12/Hurtbox"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_low12/Hitbox"]
@@ -13545,6 +17078,14 @@ libraries = {
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_low130"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_low130/Hurtbox"]
 [editable path="WORLD/BG/Section 1/Wave 1/Enemy_low130/Hitbox"]
+[editable path="WORLD/BG/Section 1/Wave 1/Enemy_num"]
+[editable path="WORLD/BG/Section 1/Wave 1/Enemy_num/Hurtbox"]
+[editable path="WORLD/BG/Section 1/Wave 1/Enemy_num2"]
+[editable path="WORLD/BG/Section 1/Wave 1/Enemy_num2/Hurtbox"]
+[editable path="WORLD/BG/Section 1/Wave 1/Enemy_num3"]
+[editable path="WORLD/BG/Section 1/Wave 1/Enemy_num3/Hurtbox"]
+[editable path="WORLD/BG/Section 1/Wave 1/Enemy_num4"]
+[editable path="WORLD/BG/Section 1/Wave 1/Enemy_num4/Hurtbox"]
 [editable path="WORLD/BG/Section 1/Wave 2/Enemy_cap"]
 [editable path="WORLD/BG/Section 1/Wave 2/Enemy_cap/Hurtbox"]
 [editable path="WORLD/BG/Section 1/Wave 2/Enemy_cap2"]
@@ -14007,6 +17548,277 @@ libraries = {
 [editable path="WORLD/BG/Section 1/Wave 2/Enemy_low150/Hitbox"]
 [editable path="WORLD/BG/Section 1/Boss/Boss"]
 [editable path="WORLD/BG/Section 1/Boss/Boss/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap2"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap2/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap3"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap3/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap4"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap4/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap5"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap5/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap6"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap6/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap7"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap7/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap8"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap8/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap9"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap9/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap10"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap10/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap11"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap11/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap12"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap12/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap13"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap13/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap14"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap14/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap15"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap15/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap16"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap16/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap17"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap17/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap18"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap18/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap19"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap19/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap20"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap20/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap21"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap21/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap22"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap22/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap23"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap23/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap24"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap24/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap25"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap25/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap26"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap26/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap27"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap27/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap28"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap28/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap29"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap29/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap30"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap30/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap31"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap31/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap32"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap32/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap33"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap33/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap34"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap34/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap35"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap35/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap36"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap36/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap37"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap37/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap38"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap38/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap39"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap39/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap40"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap40/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap41"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap41/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap42"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap42/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap43"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap43/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap44"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_cap44/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low2"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low2/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low2/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low3"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low3/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low3/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low4"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low4/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low4/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low5"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low5/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low5/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low6"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low6/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low6/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low7"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low7/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low7/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low8"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low8/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low8/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low9"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low9/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low9/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low10"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low10/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low10/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low11"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low11/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low11/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low12"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low12/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low12/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low13"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low13/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low13/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low14"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low14/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low14/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low15"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low15/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low15/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low16"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low16/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low16/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low17"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low17/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low17/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low18"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low18/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low18/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low19"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low19/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low19/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low20"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low20/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low20/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low21"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low21/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low21/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low22"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low22/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low22/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low23"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low23/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low23/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low24"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low24/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low24/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low25"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low25/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low25/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low26"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low26/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low26/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low27"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low27/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low27/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low28"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low28/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low28/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low29"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low29/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low29/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low30"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low30/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low30/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low31"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low31/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low31/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low32"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low32/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low32/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low33"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low33/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low33/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low34"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low34/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low34/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low35"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low35/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low35/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low36"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low36/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low36/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low37"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low37/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low37/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low38"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low38/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low38/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low39"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low39/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low39/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low40"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low40/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low40/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low41"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low41/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low41/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low42"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low42/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low42/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low43"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low43/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low43/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low44"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low44/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low44/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low45"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low45/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low45/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low46"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low46/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low46/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low47"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low47/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low47/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low48"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low48/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low48/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low49"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low49/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low49/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low50"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low50/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low50/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low51"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low51/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low51/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low52"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low52/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low52/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low53"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low53/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low53/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low54"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low54/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low54/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low55"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low55/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low55/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low56"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low56/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low56/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low57"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low57/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_low57/Hitbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num2"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num2/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num3"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num3/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num4"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num4/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num5"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num5/Hurtbox"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num6"]
+[editable path="WORLD/BG/Section 2/Wave 1/Enemy_num6/Hurtbox"]
 [editable path="player"]
 [editable path="player/Hurtbox"]
 [editable path="player/Hitbox"]

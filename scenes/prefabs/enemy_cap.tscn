@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfm4sdaawsl1h"]
+[gd_scene load_steps=8 format=3 uid="uid://bfm4sdaawsl1h"]
 
 [ext_resource type="Script" path="res://scripts/capital_enemy.gd" id="1_6d1em"]
 [ext_resource type="PackedScene" uid="uid://c2adget47swu4" path="res://scenes/prefabs/health.tscn" id="3_ujx2n"]
 [ext_resource type="PackedScene" uid="uid://b5tpdgc5545oh" path="res://scenes/prefabs/overlap/hurtbox.tscn" id="4_bl6vc"]
+[ext_resource type="AudioStream" uid="uid://dbgorqbh2nqxy" path="res://audio/new/Laser_Shoot.wav" id="4_lseso"]
+[ext_resource type="AudioStream" uid="uid://d3qx1bp4vabvg" path="res://audio/new/Hit_Hurt.wav" id="5_aqrei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2tgc"]
 size = Vector2(36.0191, 36)
@@ -40,6 +42,14 @@ collision_mask = 10
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_5qo1b")
 disabled = true
+
+[node name="Fire_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lseso")
+bus = &"SFX"
+
+[node name="Hit_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_aqrei")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="health_changed" from="health" to="." method="_on_health_health_changed"]

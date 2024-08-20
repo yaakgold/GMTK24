@@ -7,6 +7,8 @@ class_name CapEnemy
 @onready var health = $health
 @onready var collider = $CollisionPolygon2D
 @onready var hurtbox_collider = $Hurtbox/CollisionShape2D
+@onready var fire_audio = $Fire_Audio
+@onready var hit_audio = $Hit_Audio
 
 @export var attack_range = 300.0
 @export var time_between_shots = 1.0
@@ -25,15 +27,15 @@ var is_spawned = false
 func _physics_process(delta):
 	if(!player or !is_spawned):
 		return
-		
+	
 	#Look at player, smoothly
 	var v = player.global_position - global_position
 	var angle = v.angle()
 	var r = global_rotation
 	global_rotation = lerp(r, angle, delta * ROTATE_SPEED)
 
-	if(position.distance_to(player.position) > attack_range):
-		velocity = position.direction_to(player.position) * SPEED
+	if(global_position.distance_to(player.global_position) > attack_range):
+		velocity = global_position.direction_to(player.global_position) * SPEED
 	else:
 		#Fire at player
 		velocity.x = move_toward(velocity.x, 0, SPEED * SLOW_DOWN_SPEED * delta)
@@ -45,17 +47,18 @@ func _physics_process(delta):
 func spawn_enemy():
 	collider.disabled = false
 	hurtbox_collider.disabled = false
-	player = get_tree().root.get_child(0).get_node("player")
+	player = get_tree().root.get_child(2).get_node("player")
 	is_spawned = true
 
 func attempt_fire():
 	if(can_fire):
 		can_fire = false
+		fire_audio.play()
 		timer.start(time_between_shots)
 		
 		var p: Projectile = proj.instantiate()
 		p.position = proj_position.global_position
-		get_tree().root.get_child(0).add_child(p)
+		get_tree().root.get_child(2).add_child(p)
 		p.fire(400, player.position, Color(1, 0, 0), false)
 
 func _on_timer_timeout():
@@ -63,15 +66,19 @@ func _on_timer_timeout():
 
 
 func _on_health_health_changed(amt):
-	pass
+	hit_audio.play()
 
 
 func _on_health_killed():
+	is_spawned = false
+	await get_tree().create_timer(.25).timeout
 	var p = part.instantiate()
 	p.global_position = global_position
-	get_tree().root.get_child(0).add_child(p)
+	get_tree().root.get_child(2).add_child(p)
 	queue_free()
 
 func _on_hurtbox_area_entered(hitbox):
+	if(hitbox is Bomb):
+		return
 	health.take_damage(hitbox.damage)
 	hitbox.did_damage.emit()

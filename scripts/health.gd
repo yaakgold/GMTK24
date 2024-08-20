@@ -14,6 +14,7 @@ func _ready():
 
 func take_damage(dmg):
 	current_health -= dmg
+	current_health = clamp(current_health, 0, max_health)
 	
 	if(current_health <= 0):
 		killed.emit()

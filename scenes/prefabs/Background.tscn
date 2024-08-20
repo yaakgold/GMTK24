@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg3fqnho7avvh"]
+
+[ext_resource type="AudioStream" uid="uid://hyvvapsu6ku1" path="res://audio/POST your game backgroundmusic.wav" id="1_hafh1"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_hafh1")
+autoplay = true
+max_distance = 2e+09
